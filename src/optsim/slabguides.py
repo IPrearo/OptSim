@@ -159,8 +159,7 @@ class DGMode(DielectricGuide):
             raise NotImplementedError
         sigma = _np.power(0.5*d + \
                     0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
-                    _np.power(_np.cos(PI*sintheta*d/wl), 2) / gamma * \
-                    _np.exp(0.5*gamma*d),
+                    _np.power(_np.cos(PI*sintheta*d/wl), 2) / gamma,
                     -0.5)
         
         alpha = sigma * _np.cos(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
