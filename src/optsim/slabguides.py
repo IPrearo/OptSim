@@ -10,7 +10,7 @@ PI2 = 6.283185307179586
 C = 299792458
 
 
-class MirrorGuide2D:
+class MirrorGuide:
     d: float
     wl: float
     k: float
@@ -24,7 +24,7 @@ class MirrorGuide2D:
         return floor( 2 * self.d / self.wl )
 
 
-class MGMode(MirrorGuide2D):
+class MGMode(MirrorGuide):
     m: int
 
     def __init__(self, mode, mirror_distance, wavelength):
@@ -90,7 +90,7 @@ class TM_MGMode(MGMode):
     
 
 
-class PlanarDielectricGuide:
+class DielectricGuide:
     wl: float
     k: float
     n_core: float
@@ -116,7 +116,7 @@ class PlanarDielectricGuide:
         return ceil( _np.sin(self.theta_c) * 2 * self.d / self.wl )
 
 
-class PDGMode(PlanarDielectricGuide):
+class DGMode(DielectricGuide):
     m:int
 
     def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
@@ -124,12 +124,14 @@ class PDGMode(PlanarDielectricGuide):
         self.m = mode
         self.theta = None
 
+
     @property
     def beta(self):
         if self.theta is None:
             raise AttributeError("This mode does not have a theta, try a TE or TM mode?")
         return self.n_core * self.k * _np.cos(self.theta)
     
+
     @property
     def ky(self):
         if self.theta is None:
@@ -142,9 +144,58 @@ class PDGMode(PlanarDielectricGuide):
             raise AttributeError("This mode does not have a mode number, try a TE or TM mode?")
         initial_guess = 0.5*self.wl/self.d * (self.m+0.5)
         return root(self._consistency_condition, initial_guess)['x'][0]
+    
+
+    @property
+    def gamma(self):
+        return _np.sqrt( self.beta**2 - self.n_clad**2 * self.k**2 )
 
 
-class TE_PDGMode(PDGMode):
+    def prop_constants(self):
+        wl, theta, d, gamma = self.wl, self.theta, self.d, self.gamma
+        sintheta = _np.sin(theta)
+
+        if self.m % 2 == 1:
+            raise NotImplementedError
+        sigma = _np.power(0.5*d + \
+                    0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
+                    _np.power(_np.cos(PI*sintheta*d/wl), 2) / gamma * \
+                    _np.exp(0.5*gamma*d),
+                    -0.5)
+        
+        alpha = sigma * _np.cos(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
+
+        # Proportionallity constants for inside and outside the core, respectivelly
+        return sigma, alpha
+
+
+    def _internal_um(self, y):
+        sigma, __ = self.prop_constants()
+        if self.m % 2 == 1:
+            return sigma*_np.sin(PI2 * _np.sin(self.theta) / self.wl * y)
+        
+        return sigma*_np.cos(PI2 * _np.sin(self.theta) / self.wl * y)
+
+
+    def _external_um(self, y):
+        __, alpha = self.prop_constants()
+        gamma = self.gamma
+        return alpha*_np.exp( -gamma *_np.abs(y) )
+
+
+    def _um(self, y):
+        return _np.where( _np.abs(y) > 0.5*self.d,
+                           self._external_um(y),
+                           self._internal_um(y))
+
+
+    def Ex(self, y, z, am=1):
+        z_comp = _np.exp(-1j * self.beta * z)
+        return am * self._um(y) * z_comp
+                
+
+
+class TE_DGMode(DGMode):
 
     def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
         super().__init__(mode, n_core, n_clad, wavelength, wall_distance)
@@ -161,7 +212,7 @@ class TE_PDGMode(PDGMode):
     
 
 
-class TM_PDGMode(PDGMode):
+class TM_DGMode(DGMode):
 
     def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
         super().__init__(mode, n_core, n_clad, wavelength, wall_distance)
