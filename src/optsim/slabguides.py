@@ -156,13 +156,20 @@ class DGMode(DielectricGuide):
         sintheta = _np.sin(theta)
 
         if self.m % 2 == 1:
-            raise NotImplementedError
-        sigma = _np.power(0.5*d + \
-                    0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
-                    _np.power(_np.cos(PI*sintheta*d/wl), 2) / gamma,
-                    -0.5)
+            sigma = _np.power(0.5*d + \
+                        -0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
+                        _np.power(_np.sin(PI*sintheta*d/wl), 2) / gamma,
+                        -0.5)
+            
+            alpha = sigma * _np.sin(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
         
-        alpha = sigma * _np.cos(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
+        else:
+            sigma = _np.power(0.5*d + \
+                        0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
+                        _np.power(_np.cos(PI*sintheta*d/wl), 2) / gamma,
+                        -0.5)
+            
+            alpha = sigma * _np.cos(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
 
         # Proportionallity constants for inside and outside the core, respectivelly
         return sigma, alpha
@@ -179,7 +186,9 @@ class DGMode(DielectricGuide):
     def _external_um(self, y):
         __, alpha = self.prop_constants()
         gamma = self.gamma
-        return alpha*_np.exp( -gamma *_np.abs(y) )
+        return _np.where( y<0.5*self.d,
+                         -alpha*_np.exp( -gamma *_np.abs(y) ),
+                         alpha*_np.exp( -gamma *_np.abs(y) ) )
 
 
     def _um(self, y):
