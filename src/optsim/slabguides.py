@@ -3,8 +3,6 @@ import numpy as _np
 from scipy.optimize import root
 from math import ceil, floor
 
-from dataclasses import dataclass
-
 PI = 3.1415926535897932
 PI2 = 6.283185307179586
 C = 299792458
@@ -118,6 +116,7 @@ class DielectricGuide:
 
 class DGMode(DielectricGuide):
     m:int
+    theta: float
 
     def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
         super().__init__(n_core, n_clad, wavelength, wall_distance)
