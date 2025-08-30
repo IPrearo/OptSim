@@ -124,14 +124,12 @@ class DGMode(DielectricGuide):
         self.m = mode
         self.theta = None
 
-
     @property
     def beta(self):
         if self.theta is None:
             raise AttributeError("This mode does not have a theta, try a TE or TM mode?")
         return self.n_core * self.k * _np.cos(self.theta)
     
-
     @property
     def ky(self):
         if self.theta is None:
@@ -150,6 +148,25 @@ class DGMode(DielectricGuide):
     def gamma(self):
         return _np.sqrt( self.beta**2 - self.n_clad**2 * self.k**2 )
 
+                
+
+
+class TE_DGMode(DGMode):
+
+    def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
+        super().__init__(mode, n_core, n_clad, wavelength, wall_distance)
+        self.theta = self._calc_theta()
+
+
+    def _consistency_condition(self, theta_test):
+        if self.m % 2 == 1:
+            A = 1/_np.tan(PI * self.d/self.wl * _np.sin(theta_test))
+        else:
+            A = _np.tan(PI * self.d/self.wl * _np.sin(theta_test))
+
+        B = _np.sqrt( _np.sin(self.theta_c)**2 / _np.sin(theta_test)**2 - 1 )
+        return A-B
+    
 
     def prop_constants(self):
         wl, theta, d, gamma = self.wl, self.theta, self.d, self.gamma
@@ -203,23 +220,6 @@ class DGMode(DielectricGuide):
     def Ex(self, y, z, am=1):
         z_comp = _np.exp(-1j * self.beta * z)
         return am * self._um(y) * z_comp
-                
-
-
-class TE_DGMode(DGMode):
-
-    def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
-        super().__init__(mode, n_core, n_clad, wavelength, wall_distance)
-        self.theta = self._calc_theta()
-
-    def _consistency_condition(self, theta_test):
-        if self.m % 2 == 1:
-            A = 1/_np.tan(PI * self.d/self.wl * _np.sin(theta_test))
-        else:
-            A = _np.tan(PI * self.d/self.wl * _np.sin(theta_test))
-
-        B = _np.sqrt( _np.sin(self.theta_c)**2 / _np.sin(theta_test)**2 - 1 )
-        return A-B
     
 
 
