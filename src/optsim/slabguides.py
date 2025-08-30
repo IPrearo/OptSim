@@ -186,9 +186,12 @@ class DGMode(DielectricGuide):
     def _external_um(self, y):
         __, alpha = self.prop_constants()
         gamma = self.gamma
-        return _np.where( y<0.5*self.d,
-                         -alpha*_np.exp( -gamma *_np.abs(y) ),
-                         alpha*_np.exp( -gamma *_np.abs(y) ) )
+        if self.m % 2 == 1:
+            return _np.where( y<0.5*self.d,
+                            -alpha*_np.exp( -gamma *_np.abs(y) ),
+                            alpha*_np.exp( -gamma *_np.abs(y) ) )
+        
+        return alpha*_np.exp( -gamma *_np.abs(y) )
 
 
     def _um(self, y):
