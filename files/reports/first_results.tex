@@ -86,7 +86,7 @@ The other important parameter is the critical angle ($\theta_c$), given by Eq. \
     \label{eq:theta_c}
 \end{equation}
 
-The results for these parameters for $SiO_2$ and $TiO_2$ are shown in Tab. \ref{fig:na_theta_c}.
+The results for these parameters for $SiO_2$ and $TiO_2$ are shown in Tab. \ref{tab:na_theta_c}.
 
 \begin{table}[H]
     \centering
@@ -137,7 +137,7 @@ The plot for $f_1$ and $f_2$ to help visualize the possible modes for the wavegu
     \caption{Solution for the guided modes in a planar dielectric waveguide with a $SiO_2$ core, $d = 10 \mu m$ and $\lambda = 1.55 \mu m$.}
 \end{figure}
 
-A comparison between the approximation and exact number of TE modes is put in Tab. \ref{fig:number_of_modes_comparison} as we increase the thickness of the core, by consequence, we increase the number of possible modes. So, when it is possible to manually count the number of modes, use this technique to obtain the exact value, since the approximate value can diverge much.
+A comparison between the approximation and exact number of TE modes is put in Tab. \ref{tab:number_of_modes_comparison} as we increase the thickness of the core, by consequence, we increase the number of possible modes. So, when it is possible to manually count the number of modes, use this technique to obtain the exact value, since the approximate value can diverge much.
 
 \begin{table}[H]
     \centering
@@ -295,7 +295,7 @@ From the surface ($\| \mathbf{E} \|$) and arrow plot ($Ex$ and $Ey$) I could rea
         \centering
         \includegraphics[scale=0.32]{SiO2_normE_2.png}
         \caption{Vertical alignment.}
-        \label{fig:E_hor}
+        \label{fig:E_ver}
     \end{subfigure}
     \caption{Surface and arrow plots for the first two modes of the $SiO_2$ waveguide.}
 \end{figure}
@@ -501,7 +501,7 @@ Varying the gap distance $d$ between the cores for the $SiO_2/SiO_2$ waveguide, 
     \label{fig:varying_d}
 \end{figure}
 
-To explore the high confinement of the $TiO_2$, we put the $SiO_2/SiO_2$ waveguide to the side of $TiO_2/TiO_2$ waveguide for $d = 0.5\mu m$. As expected, the overlaping region for the $TiO_2/TiO_2$ guide is smaller for the fundamental mode. Something more interesting happens when we consider the core of different materials, the $SiO_2/TiO_2$. Only the core of $TiO_2$ guides light.
+To explore the high confinement of the $TiO_2$, we solved the problem for $SiO_2/SiO_2$ and $TiO_2/TiO_2$ waveguides for $d = 0.5\mu m$. As expected, the overlaping region for the $TiO_2/TiO_2$ guide is smaller for the fundamental mode. Something more interesting happens when we consider the core of different materials, the $SiO_2/TiO_2$. Only the core of $TiO_2$ guides light.
 
 \begin{figure}[H]
     \centering
@@ -525,5 +525,280 @@ To explore the high confinement of the $TiO_2$, we put the $SiO_2/SiO_2$ wavegui
     \caption{Comparison between the waveguides $SiO_2/SiO_2$, $TiO_2/TiO_2$, and $SiO_2/TiO_2$ for $d = 0.5\mu m$.}
     \label{fig:different_mat_cores}
 \end{figure}
+
+Now, let's explore the impact of varying the shape of the 
+second core. Let's double it, so $w_{core2} = 12\mu m$ and $t_{core2} = 4 \mu m$, but with the center of the cores being aligned. The results are shown in Fig. \ref{fig:double_size}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2_d0.5um_w12um_t4um_normE_0.png}
+        \caption{First solution.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2_d0.5um_w12um_t4um_normE_3.png}
+        \caption{Fourth solution.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2_d0.5um_w12um_t4um_normE_6.png}
+        \caption{Seventh solution.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2_d0.5um_w12um_t4um_normE_9.png}
+        \caption{Tenth solution.}
+    \end{subfigure}
+    \caption{Solution of the supermodes for the $SiO_2/SiO_2$ waveguide with the second core with doubled dimensions.}
+    \label{fig:double_size}
+\end{figure}
+
+As you can see, for the first supermodes, they are confined majoritaly in the larger core. As we increase the number of modes, starts to appear some supermodes guided through both cores. If we keep increasing the oreder of the solution, it will arise supermodes majoritaly guided through the smaller core. 
+
+If we return to the case of two cores with identical shapes for the $SiO_2/SiO_2$ coupled waveguide and shift the position of the right-side core breaking the symmetry, what does happen? The shift in the y-direction acts like a gap and change the shape of the overlapping region as you can see in Fig. \ref{fig:shifted_core2}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2d_0.5um_dy1um_normE_7.png}
+        \caption{Eigth solution.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2d_0.5um_dy1um_normE_8.png}
+        \caption{Nineth solution.}
+    \end{subfigure}
+    \caption{Even and odd supermodes of the coupled waveguide $SiO_2/SiO_2$.}
+    \label{fig:shifted_core2}
+\end{figure}
+
+
+Furthermore, it is very important to understand that COMSOL solves for the supermodes of the coupled waveguide in the modal analysis, returning even and odd modes. You can see the even supermode in Fig. \ref{fig:even_supermode} where the transverse electric field is in the same direction in both cores, and the odd supermode are characterized by the oposite direction of this electric field in the different cores and is shown in Fig. \ref{fig:odd_supermode}.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2_normE_0_d0.5um.png}
+        \caption{Even.}
+        \label{fig:even_supermode}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[scale=0.32]{SiO2_SiO2_normE_1_d0.5um.png}
+        \caption{Odd.}
+        \label{fig:odd_supermode}
+    \end{subfigure}
+    \caption{Even and odd supermodes of the coupled waveguide $SiO_2/SiO_2$.}
+\end{figure}
+
+From the mode analyse we obtain $n_{eff}$ of the supermodes, making it possible to calculate $\beta = k_0 n_{eff}$. By identifying the even and odd modes in $\{\beta_{even,j}\}_j$ and $\{\beta_{odd,j}\}_j$, respectively, we can calculate the coupling length $L_{c,j}$, the parameter that says what is the necessary length for the j-th supermode to be completely coupled from the first core to the second core. It is given by Eq. \eqref{eq:coupling_length}.
+
+\begin{equation}
+    L_{c,j} = \frac{\pi}{|\Delta \beta_j|}, \quad \Delta \beta_j = \beta_{even, j} - \beta_{odd, j} 
+    \label{eq:coupling_length}
+\end{equation}
+
+To help in the task of calculating $L_{c,j}$, I put in Tab. \ref{tab:coupling_length_aux} the values of the order of the supermode, effective refractive index and propagation constant by separating the even from the odd supermodes.
+
+\begin{table}[H]
+    \centering
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            Order & $n_{eff}$ & $\beta [\mu m^{-1}]$ \\
+            \midrule
+            0 & 1.1241 & 4.557 \\
+            1 & 1.1197 & 4.539 \\
+            2 & 1.1043 & 4.476 \\
+            3 & 1.1006 & 4.461 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Even.}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            Order & $n_{eff}$ & $\beta [\mu m^{-1}]$ \\
+            \midrule
+            0 & 1.1233 & 4.553 \\
+            1 & 1.1187 & 4.535 \\
+            2 & 1.1077 & 4.490 \\
+            3 & 1.1044 & 4.477 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Odd.}
+    \end{subtable}
+    \caption{Auxiliary table to calculate the coupling length of supermodes.}
+    \label{tab:coupling_length_aux}
+\end{table}
+
+Now, we can calculate the coupling length. Note, that if we want the second core to guide $\eta [\%]$ of the input light guided through the first core, we must have a interaction length $L_{int, j} = \eta L_{c, j}$. So, for a 50/50 beamsplitter, $L_{int, j} = L_{c,j} / 2$. The results are placed in Tab. \ref{tab:coupling_length}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{cccc}
+        \toprule
+        Order & $|\Delta \beta| [\mu m^{-1}]$ & $L_c [\mu m]$ & $L_{c}/2 [\mu m]$ \\
+        \midrule
+        0 & 0.003 & 969 & 485 \\     
+        1 & 0.004 & 775 & 388 \\
+        2 & 0.014 & 228 & 114 \\
+        3 & 0.015 & 204 & 102 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Coupling length for the supermodes.}
+    \label{tab:coupling_length}
+\end{table}
+
+As you can infer, as we increase the order of the supermode, we increase the interaction between the cores making possible to exchange energy easier from the first core to the second core, decreasing the interaction length needed to obtain total or 50/50 coupling.
+
+\subsection{Beamsplitter 50/50}
+\label{subsec:beamsplitter}
+
+Based on the results of the Sec. \ref{subsec:coupled_guides}, I chose to design a beamsplitter 50/50 for the $SiO_2/SiO_2$ waveguide, since $SiO_2$ present less light confinement compared to $TiO_2$ \textemdash remember we want to enhance coupling efficiency for lesser interaction lengths. Furthermore, I chose the cores to be identical in material, all $SiO_2$, to ensure one core doesn't confine more light than the other. And to simplify, we will let the cores to be aligned so there is no gap effect in the y-direction. At last, considering the difficulties involved in the fabrication of devices with less than a few hundred of nanometers, I will take the gap to be $d = 0.5\mu m = 500nm$.
+
+For the first study, consider the cores to present the same geometrical parameters: $w_{core, j} = 6\mu m$ and $t_{core, j} = 2\mu m$. Also, consider the input light entering at the first core only at the beginning ($P_{z,2}(0) = 0$) with $\lambda = 1.55\mu m = 1550nm$. Since in most applications the fundamental mode is the desired one, let's consider just it, so just the first supermode.
+
+To help to calculate the coupling length for the first supermode, I created the Tab. \ref{tab:wv_var_aux}.
+
+\begin{table}[H]
+    \centering
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            $\lambda [\mu m]$ & $n_{eff}$ & $\beta [\mu m^{-1}]$ \\
+            \midrule
+            1.40 & 1.1394 & 5.1136 \\
+            1.45 & 1.1345 & 4.9161 \\
+            1.50 & 1.1295 & 4.7312 \\
+            1.55 & 1.1241 & 4.5567 \\
+            1.60 & 1.1185 & 4.3923 \\
+            1.65 & 1.1126 & 4.2368 \\
+            1.70 & 1.1064 & 4.0892 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Even.}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            $\lambda [\mu m]$ & $n_{eff}$ & $\beta [\mu m^{-1}]$ \\
+            \midrule
+            1.40 & 1.1389 & 5.1114 \\
+            1.45 & 1.1340 & 4.9139 \\
+            1.50 & 1.1288 & 4.7283 \\
+            1.55 & 1.1233 & 4.5535 \\
+            1.60 & 1.1176 & 4.3649 \\
+            1.65 & 1.1115 & 4.2326 \\
+            1.70 & 1.1051 & 4.0844 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Odd.}
+    \end{subtable}
+    \caption{Auxiliary table to calculate the coupling length of the first supermode varying the input wavelength for the identical cores.}
+    \label{tab:wv_var_aux}
+\end{table}
+
+The coupling length for the different wavelengths was computed and placed in Tab. \ref{tab:wv_var}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        $\lambda [\mu m]$ & $L_c$ & $\eta[\%]$ \\
+        \midrule
+        1.40 & 1400.0 & 34.6 \\
+        1.45 & 1450.0 & 33.4 \\
+        1.50 & 1071.4 & 45.2 \\
+        1.55 & 968.7 & 50.0 \\
+        1.60 & 888.9 & 54.5 \\
+        1.65 & 750.0 & 64.59 \\
+        1.70 & 653.8 & 74.09 \\    
+        \bottomrule
+    \end{tabular}
+    \caption{Coupling length and coupling efficiency coefficient for the first supermode making $L_{int} = 484.4\mu m$ varying the input wavelength for the identical cores.}
+    \label{tab:wv_var}
+\end{table}
+
+As you can see, this coupled waveguide works well as a 50/50 splitter within the error $\pm 5$ in the range $\lambda \in [1.50 \mu m, 1.60\mu m]$. 
+
+Now, consider the following dimensions: $w_{core1} = 3\mu m$, $w_{core2} = 6\mu m$ and $t_{core,j} = 2\mu m$.
+
+\begin{table}[H]
+    \centering
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            $\lambda [\mu m]$ & $n_{eff}$ & $\beta [\mu m^{-1}]$ \\
+            \midrule
+            1.40 & 1.1392 & 5.1127 \\
+            1.45 & 1.1343 & 4.9152 \\
+            1.50 & 1.1291 & 4.7296 \\
+            1.55 & 1.1237 & 4.5551 \\
+            1.60 & 1.1181 & 4.3908 \\
+            1.65 & 1.1121 & 4.2349 \\
+            1.70 & 1.1058 & 4.0870 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Even.}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            $\lambda [\mu m]$ & $n_{eff}$ & $\beta [\mu m^{-1}]$ \\
+            \midrule
+            1.40 & 1.1353 & 5.0952 \\
+            1.45 & 1.1302 & 4.8974 \\
+            1.50 & 1.1248 & 4.7116 \\
+            1.55 & 1.1193 & 4.5373 \\
+            1.60 & 1.1134 & 4.3723 \\
+            1.65 & 1.1074 & 4.2170 \\
+            1.70 & 1.1010 & 4.0693 \\
+            \bottomrule
+        \end{tabular}
+        \caption{Odd.}
+    \end{subtable}
+    \caption{Auxiliary table to calculate the coupling length of the first supermode varying the input wavelength for different size cores.}
+    \label{tab:wv_var_aux_doub}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{ccc}
+        \toprule
+        $\lambda [\mu m]$ & $L_c$ & $\eta[\%]$ \\
+        \midrule
+        1.40 & 179.5 & 49.1 \\
+        1.45 & 176.8 & 49.8 \\
+        1.50 & 174.4 & 50.5 \\
+        1.55 & 176.1 & 50.0 \\
+        1.60 & 170.2 & 51.8 \\
+        1.65 & 175.5 & 50.2 \\
+        1.70 & 177.1 & 49.7 \\    
+        \bottomrule
+    \end{tabular}
+    \caption{Coupling length and coupling efficiency coefficient for the first supermode making $L_{int} = 88.1\mu m$ varying the input wavelength for different size cores.}
+    \label{tab:wv_var}
+\end{table}
+
+Surprinsingly, this resulted in a more robust 50/50 within $\pm 2\%$ in the range $\lambda \in [1.40 \mu m, 1.70\mu]$. If we accept a margin of $\pm 10\%$ we can extand this range even further. 
 
 \end{document}
