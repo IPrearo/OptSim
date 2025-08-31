@@ -156,7 +156,18 @@ class DGMode(DielectricGuide):
         return 0*y*z
     
     def E(self, y, z, am=1):
-        return [self.Ex(y,z,am), self.Ez(y,z,am), self.Ez(y,z,am)]
+        return [self.Ex(y,z,am), self.Ey(y,z,am), self.Ez(y,z,am)]
+    
+
+    def Hx(self, y, z, am=1):
+        return 0*y*z
+    def Hy(self, y, z, am=1):
+        return 0*y*z
+    def Hz(self, y, z, am=1):
+        return 0*y*z
+    
+    def H(self, y, z, am=1):
+        return [self.Hx(y,z,am), self.Hy(y,z,am), self.Hz(y,z,am)]
 
                 
 
@@ -236,6 +247,8 @@ class TE_DGMode(DGMode):
 class TM_DGMode(DGMode):
 
     def __init__(self, mode, n_core, n_clad, wavelength, wall_distance):
+        raise NotImplementedError("Not correctly implemented yet. Please try at a future version")
+
         super().__init__(mode, n_core, n_clad, wavelength, wall_distance)
         self.theta = self._calc_theta()
 
