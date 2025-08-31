@@ -146,6 +146,17 @@ class DGMode(DielectricGuide):
     @property
     def gamma(self):
         return _np.sqrt( self.beta**2 - self.n_clad**2 * self.k**2 )
+    
+    
+    def Ex(self, y, z, am=1):
+        return 0*y*z
+    def Ey(self, y, z, am=1):
+        return 0*y*z
+    def Ez(self, y, z, am=1):
+        return 0*y*z
+    
+    def E(self, y, z, am=1):
+        return [self.Ex(y,z,am), self.Ez(y,z,am), self.Ez(y,z,am)]
 
                 
 
@@ -237,3 +248,61 @@ class TM_DGMode(DGMode):
         B = _np.sqrt( _np.sin(self.theta_c)**2 / _np.sin(theta_test)**2 - 1 )
         C = _np.cos(self.theta_c)**2
         return A - B / C
+
+
+    def prop_constants(self):
+        wl, theta, d, gamma = self.wl, self.theta, self.d, self.gamma
+        sintheta = _np.sin(theta)
+
+        if self.m % 2 == 1:
+            sigma = _np.power(0.5*d + \
+                        -0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
+                        _np.power(_np.sin(PI*sintheta*d/wl), 2) / gamma,
+                        -0.5)
+            
+            alpha = sigma * _np.sin(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
+        
+        else:
+            sigma = _np.power(0.5*d + \
+                        0.25*wl/(PI*sintheta)*_np.sin(PI2*sintheta*d/wl) + \
+                        _np.power(_np.cos(PI*sintheta*d/wl), 2) / gamma,
+                        -0.5)
+            
+            alpha = sigma * _np.cos(PI*sintheta*d/wl) * _np.exp(0.5*gamma*d)
+
+        # Proportionallity constants for inside and outside the core, respectivelly
+        return sigma, alpha
+
+
+    def _internal_um(self, y):
+        sigma, __ = self.prop_constants()
+        if self.m % 2 == 1:
+            return sigma*_np.sin(PI2 * _np.sin(self.theta) / self.wl * y)
+        
+        return sigma*_np.cos(PI2 * _np.sin(self.theta) / self.wl * y)
+
+
+    def _external_um(self, y):
+        __, alpha = self.prop_constants()
+        gamma = self.gamma
+        if self.m % 2 == 1:
+            return _np.where( y<0.5*self.d,
+                            -alpha*_np.exp( -gamma *_np.abs(y) ),
+                            alpha*_np.exp( -gamma *_np.abs(y) ) )
+        
+        return alpha*_np.exp( -gamma *_np.abs(y) )
+
+
+    def _um(self, y):
+        return _np.where( _np.abs(y) > 0.5*self.d,
+                           self._external_um(y),
+                           self._internal_um(y))
+
+
+    def Ey(self, y, z, am=1):
+        z_comp = _np.exp(-1j * self.beta * z)
+        return am * _np.cos(self.theta) * self._um(y) * z_comp
+    
+    def Ez(self, y, z, am=1):
+        z_comp = _np.exp(-1j * self.beta * z)
+        return am * _np.sin(self.theta) * self._um(y) * z_comp
