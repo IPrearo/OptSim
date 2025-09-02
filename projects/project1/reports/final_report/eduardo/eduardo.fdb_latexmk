@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1756828670.06433 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/final_report/eduardo/eduardo.tex" "eduardo.pdf" "eduardo" 1756828671.15017 0
+["pdflatex"] 1756828890.2073 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/final_report/eduardo/eduardo.tex" "eduardo.pdf" "eduardo" 1756828891.31925 0
   "../../../graphics/comsol_coupled_waveguide/even_odd_supermodes.png" 1756826246 146119 7293c2ebd5d6cb30f338249ea1fe6687 ""
   "../../../graphics/dispersion_relation.png" 1756773759 26797 001d6f6f117966aaa2363b1c50247d24 ""
   "../../../graphics/planar_dielectric_waveguide/modes_SiO2_d5um_wv1.55um.png" 1756773759 23974 57a92e81b12d526c331c7b3a92b298ae ""
@@ -88,9 +88,9 @@
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1745818159 30366 13daaaa774357bc2a262523ba6a04bac ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/final_report/eduardo/eduardo.tex" 1756828669 12687 594f8a41ec6f5670fc2db8716d0bbbba ""
-  "eduardo.aux" 1756828670 3267 08b4f80c247a666a5b1d7f6aa455c221 "pdflatex"
-  "eduardo.tex" 1756828669 12687 594f8a41ec6f5670fc2db8716d0bbbba ""
+  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/final_report/eduardo/eduardo.tex" 1756828888 12841 0bd47d3fb75606c77185fd95eb4dde18 ""
+  "eduardo.aux" 1756828891 3267 08b4f80c247a666a5b1d7f6aa455c221 "pdflatex"
+  "eduardo.tex" 1756828888 12841 0bd47d3fb75606c77185fd95eb4dde18 ""
   (generated)
   "eduardo.aux"
   "eduardo.log"
