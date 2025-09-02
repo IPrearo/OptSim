@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1756778105.41596 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/first_results/first_results.tex" "first_results.pdf" "first_results" 1756778112.17628 2
+["pdflatex"] 1756822106.82415 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/first_results/first_results.tex" "first_results.pdf" "first_results" 1756822115.96547 2
   "../../graphics/comsol_coupled_waveguide/SiO2_SiO2_normE_0_d0.1um.png" 1756773759 64380 c7bdf4a2bdbd1bd39622f25d34c3b17c ""
   "../../graphics/comsol_coupled_waveguide/SiO2_SiO2_normE_0_d0.5um.png" 1756773759 71218 8fa867983d143a9c8b5563dc35f22c34 ""
   "../../graphics/comsol_coupled_waveguide/SiO2_SiO2_normE_0_d0um.png" 1756773759 59130 a53121b1771252fbf3e7c36585cc3592 ""
@@ -107,7 +107,7 @@
   "SiO2_SiO2d_0.5um_dy1um_normE_7.png" 0 -1 0 ""
   "SiO2_SiO2d_0.5um_dy1um_normE_8.png" 0 -1 0 ""
   "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/first_results/first_results.tex" 1756778084 35779 ee469a9baee7bd0a1dc9d56dc472ce98 ""
-  "first_results.aux" 1756778111 9215 fe242b750fb90c203594de44b4a85417 "pdflatex"
+  "first_results.aux" 1756822115 9215 fe242b750fb90c203594de44b4a85417 "pdflatex"
   "first_results.tex" 1756778084 35779 ee469a9baee7bd0a1dc9d56dc472ce98 ""
   "modes_SiO2_w6um_t2um_wv1.55um.png" 0 -1 0 ""
   "modeshell_SiO2_w6um_t2um_wv1.55um.png" 0 -1 0 ""
