@@ -11,7 +11,7 @@
 \usepackage{subcaption}
 \usepackage{booktabs}
 
-\graphicspath{{../../../graphics}{../../../graphics/planar_dielectric_waveguide}{../../../graphics/rectangular_dielectric_waveguide}{../../../graphics/comsol_individual_waveguide}{../../../graphics/comsol_coupled_waveguide}}
+\graphicspath{{../../graphics}{../../graphics/planar_dielectric_waveguide}{../../graphics/rectangular_dielectric_waveguide}{../../graphics/comsol_individual_waveguide}{../../graphics/comsol_coupled_waveguide}}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -132,14 +132,14 @@ Furthermore, calculate the butt coupling, inter-mode and auto-phase-shift coeffi
     \centering
     \begin{tabular}{cccc}
         \toprule
-        $n_{eff,1} \rightarrow n_{eff,2}$ & $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
+        $m_1 \rightarrow m_2$ & $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
         \midrule
-        $1.1236 \rightarrow 1.1236$ & $0.0073$ & $1.0890 \cdot 10^5$ & $3366.5$ \\
-        $1.1236 \rightarrow 1.1191$ & $2.2582 \cdot 10^{-7}$ & $1.0890 \cdot 10^5$ & $0.5$ \\
-        $1.1236 \rightarrow 1.1056$ & $0.0154$ & $1.0890 \cdot 10^5$ & $7207.3$ \\
+        $0 \rightarrow 0$ & $0.0073$ & $1.0890 \cdot 10^5$ & $3366.5$ \\
+        $0 \rightarrow 1$ & $2.2582 \cdot 10^{-7}$ & $1.0890 \cdot 10^5$ & $0.5$ \\
+        $0 \rightarrow 2$ & $0.0154$ & $1.0890 \cdot 10^5$ & $7207.3$ \\
         \bottomrule
     \end{tabular}
-    \caption{Butt coupling, inter-mode and auto-phase-shift coefficients for the coupled problem.}
+    \caption{Butt coupling, inter-mode and auto-phase-shift coefficients for different individual guide modes.}
     \label{tab:splitter_identical_coefficients}
 \end{table}
 
@@ -182,14 +182,14 @@ For the case of the first core to present half the widht of the second, we repea
     \centering
     \begin{tabular}{cccc}
         \toprule
-        $n_{eff,1} \rightarrow n_{eff,2}$ & $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
+        $m_1 \rightarrow m_2$ & $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
         \midrule
         $1.1099 \rightarrow 1.1099$ & $0.0169$ & $1.6146 \cdot 10^5 $ & $6830$ \\
         $1.1099 \rightarrow 1.1071$ & $1.6100 \cdot 10^{-6}$ & $1.6146 \cdot 10^5 $ & $2$ \\
         $1.1099 \rightarrow 1.0555$ & $4.0358 \cdot 10^{-6}$ & $1.6146 \cdot 10^5 $ & $3$ \\
         \bottomrule
     \end{tabular}
-    \caption{Butt coupling, inter-mode and auto-phase-shift coefficients for the coupled problem.}
+    \caption{Butt coupling, inter-mode and auto-phase-shift coefficients for different individual guide modes.}
     \label{tab:splitter_identical_coefficients}
 \end{table}
 

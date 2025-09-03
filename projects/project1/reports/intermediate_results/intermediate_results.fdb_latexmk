@@ -1,8 +1,8 @@
 # Fdb version 4
-["pdflatex"] 1756902670.82642 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/final_report/eduardo/eduardo.tex" "eduardo.pdf" "eduardo" 1756902671.93785 0
-  "../../../graphics/comsol_coupled_waveguide/even_odd_supermodes.png" 1756897549 146119 7293c2ebd5d6cb30f338249ea1fe6687 ""
-  "../../../graphics/dispersion_relation.png" 1756897550 26797 001d6f6f117966aaa2363b1c50247d24 ""
-  "../../../graphics/planar_dielectric_waveguide/modes_SiO2_d5um_wv1.55um.png" 1756897550 23974 57a92e81b12d526c331c7b3a92b298ae ""
+["pdflatex"] 1756904063.19527 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" "intermediate_results.pdf" "intermediate_results" 1756904064.85636 0
+  "../../graphics/comsol_coupled_waveguide/even_odd_supermodes.png" 1756897549 146119 7293c2ebd5d6cb30f338249ea1fe6687 ""
+  "../../graphics/dispersion_relation.png" 1756897550 26797 001d6f6f117966aaa2363b1c50247d24 ""
+  "../../graphics/planar_dielectric_waveguide/modes_SiO2_d5um_wv1.55um.png" 1756897550 23974 57a92e81b12d526c331c7b3a92b298ae ""
   "C:/Users/eduar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1756688499 84158 d77284a6843bde1e4b9764f09fb2e89e ""
   "C:/Users/eduar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1746988213 13157641 14732b0192249d8391ed96f24436d275 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -91,11 +91,11 @@
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1745818159 30366 13daaaa774357bc2a262523ba6a04bac ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/final_report/eduardo/eduardo.tex" 1756902669 14508 f4d4a30a707570de186fc8b3197e4ab3 ""
-  "eduardo.aux" 1756902671 3781 bae923149ad62d6082a5c07037e1a4f9 "pdflatex"
-  "eduardo.tex" 1756902669 14508 f4d4a30a707570de186fc8b3197e4ab3 ""
+  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" 1756903993 14465 19cb5ed5ed94f5b3acd0d7c1a1a59695 ""
+  "intermediate_results.aux" 1756904064 3807 a3107275617f4243683d8dcf51266ba5 "pdflatex"
+  "intermediate_results.tex" 1756903993 14465 19cb5ed5ed94f5b3acd0d7c1a1a59695 ""
   (generated)
-  "eduardo.aux"
-  "eduardo.log"
-  "eduardo.pdf"
+  "intermediate_results.aux"
+  "intermediate_results.log"
+  "intermediate_results.pdf"
   (rewritten before read)
