@@ -13,16 +13,29 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx,color}
+\usepackage{amsmath}
 %\numberwithin{figure}{section}
 %\numberwithin{table}{section}
 
 \journal{FI 254}
 
+
+\newcommand{\diverg}{\vec{\nabla}}
+\newcommand{\tildee}{ \vec{\tilde{E}}}
+\newcommand{\tildeh}{ \vec{\tilde{H}}}
+\newcommand{\epsz}{\varepsilon_0}
+\newcommand{\muz}{\mu_0}
+\newcommand{\couplingdenom}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_p^*\times\tildeh_p+\tildee_p\times\tildeh_p^*\right) dxdy }
+\newcommand{\couplingdenomone}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_1^*\times\tildeh_1+\tildee_1\times\tildeh_1^*\right) dxdy }
+\newcommand{\couplingdenomtwo}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_2^*\times\tildeh_2+\tildee_2\times\tildeh_2^*\right) dxdy }
+
+
+
 \begin{document}
 
 \begin{frontmatter}
 
-\title{Coupled Mode Theory and 50/50 Splitter}
+\title{Teoria de modos acoplados e splitter 50/50}
 
 \author[1]{Eduardo A. V. Souza (RA 250950)}
 \author[1]{Ivan Prearo (RA 237215)}
@@ -38,42 +51,156 @@
 \end{abstract}
 
 \begin{keyword}
-    Waveguides \sep Coupled Mode Theory \sep Beamsplitters
+    Guias de onda \sep Teoria de Modos Acoplados \sep Beamsplitters
 \end{keyword}
 
 
 \end{frontmatter}
 
-\section{Introduction}
+\section{Introdução}
 \label{sec:intro}
 
-\section{Infinite dielectric waveguide}
+\section{Guia de onda dielétrico infinito}
 \label{sec:slab}
 
-\subsection{Theory development}
+\subsection{Desenvolvimento teórico}
 \label{subsec:slab_theory}
 
-\subsection{Numerical analysis}
+\subsection{Análise numérica}
 \label{subsec:slab_num}
 
-\section{Rectangular dielectric waveguide}
+\section{Guia de onda dielétrico retangular}
 \label{subsec:rectangle}
 
-\subsection{Theoretical development}
+\subsection{Desenvolvimento teórico}
 \label{subsec:rectangle_theory}
 
-\subsection{Solo waveguide}
+\subsection{Guia de onda isolado}
 \label{subsec:rectangle_solo}
 
-\subsection{Coupled waveguide}
+\subsection{Guias de onda acoplados}
 \label{subsec:rectangle_coupled}
 
-\section{Conclusion}
+\subsubsection{Coeficientes de acoplamento}
+\label{subsec:coupling_coeff}
+
+As derivações desta subseção foram baseadas no capítulo 4 de \cite{okamoto2021fundamentals}.
+
+Das equações de Maxwell aplicadas em guias de onda dielétricos, tem-se que
+
+\begin{equation}\label{eq:maxwell_guides}
+\left\{
+\begin{split}
+\diverg \times \tildee &= -j\omega\mu_0\tildeh \\
+\diverg\times \tildeh &= j\omega\epsilon_0N_{(x,y)}^2\tildee
+\end{split}\right.
+\end{equation}
+
+As mesmas equações para dois guias de onda distintos podem ser escritas como
+
+\begin{equation}\label{eq:maxwell_pguides}
+\left\{
+\begin{split}
+\diverg \times \tildee_p &= -j\omega\muz\tildeh_p \\
+\diverg\times \tildeh_p &= j\omega\epsz N_p^2\tildee_p
+\end{split}\right. ,
+\end{equation}
+
+\noindent onde $p=1,2$ distingue os campos eletromagnéticos de cada guia de onda isolado. A dependência de $N$ ($\tildee,\tildeh$) em $x,y$ ($x,y,z$) foi emitida por motivos de simplificação, mas deve-se atentar a este fato para as equações seguintes, onde esses termos serão integrados no espaço.
+
+Assumindo que os modos guiados pelos dois guias formam uma base completa da solução conjunta, podemos escrever o campo total como sendo a superposição dos campos eletromagnéticos isolados
+
+\begin{equation}\label{eq:field_dependancies}
+\left\{
+\begin{split}
+\tildee &= A_{(z)}\tildee_1 + B_{(z)}\tildee_2 \\
+\tildeh &= A_{(z)}\tildeh_1 + B_{(z)}\tildeh_2
+\end{split}
+\right.
+\end{equation}
+
+Usando as equações \ref{eq:maxwell_guides} e \ref{eq:field_dependancies} chegamos em
+
+\begin{equation}\label{eq:AB_dependancies}
+\left\{
+\begin{split}
+\frac{dA}{dz}\hat{z}\times\tildee_1 &+ \frac{dB}{dz}\hat{z}\times\tildee_2 = 0 \\
+\frac{dA}{dz}\hat{z}\times\tildeh_1 &-j\omega\epsz\left(N^2-N_1^2\right)A\tildee_1 \\
++ \frac{dB}{dz}\hat{z}&\times\tildeh_2 -j\omega\epsz\left(N^2-N_2^2\right)B\tildee_2 = 0
+\end{split}\right.
+\end{equation}
+
+E estes resultados podem ser utilizados nas seguintes equações integrais:
+
+\begin{equation}\label{eq:integral_equations}
+ \int_{-\infty}^\infty \int_{-\infty}^\infty \left[ \tildee_p^*\cdot (\ref{eq:AB_dependancies}a) - \tildeh_p^*\cdot(\ref{eq:AB_dependancies}b) \right] dxdy = 0
+\end{equation}
+
+Onde (\ref{eq:AB_dependancies}a) e (\ref{eq:AB_dependancies}b) referem-se ao lado esquerdo da primeira e segunda linha da Eq. \ref{eq:AB_dependancies}, respectivamente. Definindo $I_p$ como o integrando da equação acima, é encontrado
+
+\begin{equation}\label{eq:I_p}
+\begin{split}
+I_p = &- \frac{dA}{dz}\hat{z}\cdot\left( \tildee_p^*\times\tildeh_1 + \tildee_1\times\tildeh_p^*\right) \\
+& - \frac{dB}{dz}\hat{z}\cdot\left( \tildee_p^*\times\tildeh_2 + \tildee_2\times\tildeh_p^*\right) \\
+& - j\omega\epsz A\left(N^2-N_1^2\right)\tildee_p^*\cdot\tildee_1 \\
+& - j\omega\epsz B\left(N^2-N_2^2\right)\tildee_p^*\cdot\tildee_2
+\end{split}
+\end{equation}
+
+Ainda é possível separar a componente da direção de propagação nos campos eletromagnéticos, ou seja,
+
+\begin{equation*}
+\left\{
+\begin{split}
+\tildee_p &= \vec{E}_pe^{-i\beta_p z} \\
+\tildeh_p &= \vec{H}_pe^{-i\beta_p z}
+\end{split}
+\right.
+\end{equation*}
+
+Portanto, ao substituir a Eq. \ref{eq:I_p} e dividir por $ \couplingdenom $, pode-se escrever a Eq. \ref{eq:integral_equations} para $p=1$ como
+
+\begin{equation} \label{eq:z_sep_Eq_p1}
+\left\{
+\begin{split}
+\frac{dA}{dz} + \frac{dB}{dz}e^{-j(\beta_2-\beta_1)z}\frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
++ jA \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
++ jBe^{-j(\beta_2-\beta_1)z} \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &= 0
+\end{split}
+\right.
+\end{equation}
+
+\noindent definindo os coeficientes de acoplamento
+
+\begin{equation}
+\label{eq:coupling_coeff}
+\left\{
+\begin{split}
+c_{pq} &\equiv \frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z} \cdot \left[ \vec{E_p^*}\times\vec{H_q} + \vec{E_q}\times\vec{H_p^*} \right] dxdy}{\couplingdenom} \\
+\chi_{p} &\equiv \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_p^2\right) \vec{E_p^*}\cdot\vec{E_p} dxdy}{\couplingdenom} \\
+\kappa_{pq} &\equiv \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_q^2\right) \vec{E_p^*}\cdot\vec{E_q} dxdy}{\couplingdenom}
+\end{split} 
+\right.
+\end{equation}
+
+Tem-se que a Eq. \ref{eq:z_sep_Eq_p1} é simplificada como
+
+\begin{equation}
+\frac{dA}{dz} + c_{12}\frac{dB}{dz}e^{-j\Delta\beta z} + j\chi_1A + j\kappa_{12}Be^{-j\Delta\beta z} = 0
+\end{equation}
+
+onde $\Delta\beta\equiv\beta_2-\beta_1$. De maneira análoga, a partir da Eq. \ref{eq:integral_equations}, mas com $p=2$ obetém-se
+
+\begin{equation}
+\frac{dB}{dz} + c_{21}\frac{dA}{dz}e^{-j\Delta\beta z} + j\chi_2B + j\kappa_{21}Ae^{-j\Delta\beta z} = 0
+\end{equation} 
+
+\section{Conclusão}
 \label{sec:conclusion}
 
 \section*{Referências Bibliográficas}
 
-\section*{Appendix}
+\section*{Apêndice}
 \label{sec:appendix}
 
 \end{document}
