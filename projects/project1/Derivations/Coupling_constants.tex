@@ -18,7 +18,8 @@
 \geometry{a4paper} % or letterpaper (US) or a5paper or....
 % \geometry{margin=2in} % for example, change the margins to 2 inches all round
 % \geometry{landscape} % set up the page for landscape
-%   read geometry.pdf for detailed page layout information
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{refs.bib}
 
 \usepackage{graphicx} % support the \includegraphics command and options
 
@@ -73,6 +74,8 @@
 \maketitle
 
 \section{Derivações}
+
+As derivações encontradas aqui são baseadas no capítulo 4 de \cite{okamoto2021fundamentals}.
 
 Das equações de Maxwell aplicadas em guias de onda dielétricos, temos que
 
@@ -241,5 +244,9 @@ Produtos vetorial e escalar de vetores do tipo $\vec{A}e^{j\phi_1}$ e $\vec{B}e^
 \end{split}
 \right.
 \end{equation}
+
+\newpage
+
+\printbibliography
 
 \end{document}
