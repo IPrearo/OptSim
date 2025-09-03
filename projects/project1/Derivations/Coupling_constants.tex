@@ -1,0 +1,245 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage{amsmath}
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+
+\newcommand{\diverg}{\vec{\nabla}}
+\newcommand{\tildee}{ \vec{\tilde{E}}}
+\newcommand{\tildeh}{ \vec{\tilde{H}}}
+\newcommand{\epsz}{\varepsilon_0}
+\newcommand{\muz}{\mu_0}
+\newcommand{\couplingdenom}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_p^*\times\tildeh_p+\tildee_p\times\tildeh_p^*\right) dxdy }
+\newcommand{\couplingdenomone}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_1^*\times\tildeh_1+\tildee_1\times\tildeh_1^*\right) dxdy }
+\newcommand{\couplingdenomtwo}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_2^*\times\tildeh_2+\tildee_2\times\tildeh_2^*\right) dxdy }
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Coupling constants derivations}
+\author{Ivan Prearo}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+
+\section{Derivações}
+
+Das equações de Maxwell aplicadas em guias de onda dielétricos, temos que
+
+\begin{equation}\label{eq:maxwell_guides}
+\left\{
+\begin{split}
+\diverg \times \vec{E} &= -j\omega\mu_0\vec{H} \\
+\diverg\times \vec{H} &= j\omega\epsilon_0N_{(x,y)}^2\vec{E}
+\end{split}\right.
+\end{equation}
+
+Podemos escrever \ref{eq:maxwell_guides} para dois guias de onda como sendo
+
+\begin{equation}\label{eq:maxwell_pguides}
+\left\{
+\begin{split}
+\diverg \times \tildee_p &= -j\omega\muz\tildeh_p \\
+\diverg\times \tildeh_p &= j\omega\epsz N_p^2\tildee_p
+\end{split}\right.
+\end{equation}
+
+Onde $p=1,2$ distingue os campos eletromagnéticos de cada guia de onda separado. Também omitimos a dependência de $N$ ($\tildee,\tildeh$) em $x,y$ ($x,y,z$) por simplificação, mas este fato deve ser mantido em mente para futuras equações, onde esses termos serão integrados no espaço.
+
+Assumindo que os modos guiados pelos dois guias formam uma base completa da solução, podemos escrever
+
+\begin{equation}\label{eq:field_dependancies}
+\left\{
+\begin{split}
+\tildee &= A_{(z)}\tildee_1 + B_{(z)}\tildee_2 \\
+\tildeh &= A_{(z)}\tildeh_1 + B_{(z)}\tildeh_2
+\end{split}
+\right.
+\end{equation}
+
+Usando as equações \ref{eq:maxwell_guides} e \ref{eq:field_dependancies} chegamos em
+
+\begin{equation}\label{eq:curl_substitute}
+\left\{
+\begin{split}
+\diverg\times \left( A\tildee_1 + B\tildee_2 \right) &= -j\omega\muz\tildeh \\
+\diverg\times \left( A\tildeh_1 + B\tildeh_2 \right) &= j\omega\epsz N^2\tildee
+\end{split}
+\right.
+\end{equation}
+
+Substituindo a identidade da Eq. \ref{eq:rot_av} no lado esquerdo da Eq. \ref{eq:curl_substitute} e usando a Eq. \ref{eq:field_dependancies} em termos que aparecem durante a derivação matemática, podemos chegar em
+
+\begin{equation}\label{eq:AB_dependancies}
+\left\{
+\begin{split}
+\frac{dA}{dz}\hat{z}\times\tildee_1 &+ \frac{dB}{dz}\hat{z}\times\tildee_2 = 0 \\
+\frac{dA}{dz}\hat{z}\times\tildeh_1 &-j\omega\epsz\left(N^2-N_1^2\right)A\tildee_1 + \frac{dB}{dz}\hat{z}\times\tildeh_2 -j\omega\epsz\left(N^2-N_2^2\right)B\tildee_2 = 0
+\end{split}\right.
+\end{equation}
+
+E estes resultados podem ser utilizados nas seguintes equações integrais:
+
+\begin{equation}\label{eq:integral_equations}
+\begin{split}
+ \int_{-\infty}^\infty \int_{-\infty}^\infty \left[ \tildee_p^*\cdot\right.&\left(\frac{dA}{dz}\hat{z}\times\tildeh_1 - j\omega\epsz\left(N^2-N_1^2\right)A\tildee_1 \right. \\
++ &\left. \frac{dB}{dz}\hat{z}\times\tildeh_2 -j\omega\epsz\left(N^2-N_2^2\right)B\tildee_2\right) \\
+ &\left. - \tildeh_p^*\cdot\left( \frac{dA}{dz}\hat{z}\times\tildee_1 + \frac{dB}{dz}\hat{z}\times\tildee_2\right) \right] dxdy = 0
+\end{split}
+\end{equation}
+
+Para ambos os guias de onda ($p=1,2$). Definindo $I_p$ como o integrando da equação acima, chegamos que
+
+\begin{equation}\label{eq:I_p}
+\begin{split}
+I_p = &- \frac{dA}{dz}\hat{z}\cdot\left( \tildee_p^*\times\tildeh_1 + \tildee_1\times\tildeh_p^*\right) \\
+& - \frac{dB}{dz}\hat{z}\cdot\left( \tildee_p^*\times\tildeh_2 + \tildee_2\times\tildeh_p^*\right) \\
+& - j\omega\epsz A\left(N^2-N_1^2\right)\tildee_p^*\cdot\tildee_1 \\
+& - j\omega\epsz B\left(N^2-N_2^2\right)\tildee_p^*\cdot\tildee_2
+\end{split}
+\end{equation}
+
+que pode ser substituído na Eq. \ref{eq:integral_equations} enquanto dividimos por $ \couplingdenom $. Encontrando que, para $p=1$
+
+\begin{equation}\label{eq:Eq_p1}
+\begin{split}
+\frac{dA}{dz} &+ \frac{dB}{dz}\frac{  \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left[ \tildee_2^*\times\tildeh_2 + \tildee_2\times\tildeh_2^* \right] dxdy }{\couplingdenomone} \\
+&+ jA \frac{\omega\epsz \int_{-\infty}^\infty \int_{-\infty}^\infty \left(N^2-N_1^2\right)\tildee_1^*\cdot\tildee_1 dxdy}{\couplingdenomone} \\
+&+ jB \frac{\omega\epsz \int_{-\infty}^\infty \int_{-\infty}^\infty \left(N^2-N_2^2\right)\tildee_1^*\cdot\tildee_2 dxdy}{\couplingdenomone}
+\end{split}
+\end{equation}
+
+E ainda, podemos separar a componente da direção de propagação nos campos eletromagnéticos, tendo
+
+\begin{equation*}
+\left\{
+\begin{split}
+\tildee_p &= \vec{E}_pe^{-i\beta_p z} \\
+\tildeh_p &= \vec{H}_pe^{-i\beta_p z}
+\end{split}
+\right.
+\end{equation*}
+
+E simplificar utilizando a identidade da Eq. \ref{eq:cross_dot_identity}, resultando nos termos para $p=1$
+
+\begin{equation*}
+\left\{
+\begin{split}
+\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}e^{j\beta_1z}\times\vec{H_1}e^{-j\beta_1z} + \vec{E_1}e^{j\beta_1z}\times\right.&\left.\vec{H_1^*}e^{j\beta_1z} \right) dxdy = \\
+&\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy \\
+\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}e^{j\beta_1z}\times\vec{H_2}e^{-j\beta_1z} + \vec{E_2}e^{j\beta_1z}\times\right.&\left.\vec{H_1^*}e^{j\beta_1z} \right) dxdy = \\
+&e^{-j(\beta_2-\beta_1)}\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy \\
+\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)e^{j\beta_1z}\vec{E_1^*}\cdot\vec{E_1}e^{-j\beta_1z} dxdy& = \\
+&\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy \\
+\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)e^{j\beta_1z}\vec{E_1^*}\cdot\vec{E_2}e^{-j\beta_2z} dxdy& = \\
+&e^{-j(\beta_2-\beta_1)z}\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy
+\end{split}
+\right.
+\end{equation*}
+
+Portanto a Eq. \ref{eq:Eq_p1} pode ser escrita como
+
+\begin{equation} \label{eq:z_sep_Eq_p1}
+\left\{
+\begin{split}
+\frac{dA}{dz} + \frac{dB}{dz}e^{-j(\beta_2-\beta_1)z}\frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
++ jA \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
++ jBe^{-j(\beta_2-\beta_1)z} \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &= 0
+\end{split}
+\right.
+\end{equation}
+
+Finalmente, definindo os coeficientes de acoplamento
+
+\begin{equation}
+\label{eq:coupling_coeff}
+\left\{
+\begin{split}
+c_{pq} &= \frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z} \cdot \left[ \vec{E_p^*}\times\vec{H_q} + \vec{E_q}\times\vec{H_p^*} \right] dxdy}{\couplingdenom} \\
+\chi_{p} &= \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_p^2\right) \vec{E_p^*}\cdot\vec{E_p} dxdy}{\couplingdenom} \\
+\kappa_{pq} &= \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_q^2\right) \vec{E_p^*}\cdot\vec{E_q} dxdy}{\couplingdenom) dxdy}
+\end{split}
+\right.
+\end{equation}
+
+Temos que a Eq. \ref{eq:z_sep_Eq_p1} simplifica para
+
+\begin{equation}
+\frac{dA}{dz} + c_{12}\frac{dB}{dz}e^{-j\Delta\beta z} + j\chi_1A + j\kappa_{12}Be^{-j\Delta\beta z} = 0
+\end{equation}
+
+onde $\Delta\beta\equiv\beta_2-\beta_1$. De maneira análoga, a partir da Eq. \ref{eq:integral_equations}, mas com $p=2$ obtemos
+
+\begin{equation}
+\frac{dB}{dz} + c_{21}\frac{dA}{dz}e^{-j\Delta\beta z} + j\chi_2B + j\kappa_{21}Ae^{-j\Delta\beta z} = 0
+\end{equation}
+
+\section{Identidades}
+
+
+Reescrita do rotacional de uma função escalar dependente apenas em $z$ multiplicada por uma função vetorial:
+\begin{equation}\label{eq:rot_av}
+\diverg\times\left(a_{(z)}\vec{v}\right) = a_{(z)}\diverg\times\vec{v} + \diverg a_{(z)}\times\vec{v} = a_{(z)}\diverg\times\vec{v} + \frac{da_{(z)}}{dz}\hat{z}\times\vec{v}
+\end{equation}
+
+Produtos vetorial e escalar de vetores do tipo $\vec{A}e^{j\phi_1}$ e $\vec{B}e^{-j\phi_2}$
+\begin{equation} \label{eq:cross_dot_identity}
+\left\{
+\begin{split}
+\vec{A}e^{j\phi_1}\times \vec{B}e^{-j\phi_2} &= (\vec{A}\times\vec{B})e^{j(\phi_1-\phi_2)} \\
+\vec{A}e^{j\phi_1}\cdot \vec{B}e^{-j\phi_2} &= (\vec{A}\cdot\vec{B})e^{j(\phi_1-\phi_2)}
+\end{split}
+\right.
+\end{equation}
+
+\end{document}
