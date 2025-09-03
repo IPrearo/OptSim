@@ -32,7 +32,7 @@ Campinas, Brazil}}
 \maketitle
 
 \begin{abstract}
-    In this work, we aimed to design a 50/50 splitter made a two-waveguide coupled system. First, we started with a pre-analysis with COMSOL to optimize the material of the waveguides, their width and thickness, alongside with a resonable gap to obtain a short in length splitter. Then, we followed to the theoretical modeling of the problem based on Coupled Mode Theory, ranging from the derivation of the coupling constant formula, the coupled mode equations, and a numerical method to calculate the coupling rate. At the end, we analysed two cases of beamplitter, the first with identical waveguides, and the second with one waveguide with doubled dimensions. We found that the second case is better to obtain a more compact splitter.
+    In this work, we aimed to design a 50/50 splitter made a two-waveguide coupled system. First, we started with a pre-analysis with COMSOL to optimize the material of the waveguides, their width and thickness, alongside with a resonable gap to obtain a short in length splitter. At the end, we analysed two cases of beamplitter, the first with identical waveguides, and the second with one waveguide with doubled dimensions. We found that the second case is better to obtain a more compact splitter.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -96,15 +96,6 @@ From Fig. \ref{fig:intro_equation} it is evident $f_1$ and $f_2$ intersect at th
 \end{equation}
 
 With the results above, we could note the waveguide made of $SiO_2$ presented a smaller number of modes when compared to the $TiO_2$ case. Since in this work we are concerned with a waveguide with a few guided modes only, we decided to explore the coupled system made of $SiO_2$ cores and the geometrical parameters $t_{core,j} = 2\mu m$, (i) $w_{core, j} = 6 \mu m$, and (ii) $w_{core, 2} = 2 w_{core, 1} = 6\mu m$ and $t_{core, j} = 2\mu m$. Another observation, is that we are considering the two cores for the coupled systems to be aligned at the center of the cartesian coordiniate system, in a sense the gap in the y-direction is $d_y = 0$, otherwise it would distort the overlapping region and would not give much different information. Thus, we can name the gap in the x-direction simply $d$.
-
-\section{Theoretical development}
-\label{sec:theory}
-
-\subsection{Coupling coefficient}
-\label{subsec:theory_coefficient}
-
-\subsection{Coupled equations}
-\label{subsec:theory_equations}
 
 \section{50/50 splitter}
 \label{sec:splitter}
@@ -184,9 +175,9 @@ For the case of the first core to present half the widht of the second, we repea
         \toprule
         $m_1 \rightarrow m_2$ & $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
         \midrule
-        $1.1099 \rightarrow 1.1099$ & $0.0169$ & $1.6146 \cdot 10^5 $ & $6830$ \\
-        $1.1099 \rightarrow 1.1071$ & $1.6100 \cdot 10^{-6}$ & $1.6146 \cdot 10^5 $ & $2$ \\
-        $1.1099 \rightarrow 1.0555$ & $4.0358 \cdot 10^{-6}$ & $1.6146 \cdot 10^5 $ & $3$ \\
+        $0 \rightarrow 0$ & $0.0169$ & $1.6146 \cdot 10^5 $ & $6830$ \\
+        $0 \rightarrow 1$ & $1.6100 \cdot 10^{-6}$ & $1.6146 \cdot 10^5 $ & $2$ \\
+        $0 \rightarrow 2$ & $4.0358 \cdot 10^{-6}$ & $1.6146 \cdot 10^5 $ & $3$ \\
         \bottomrule
     \end{tabular}
     \caption{Butt coupling, inter-mode and auto-phase-shift coefficients for different individual guide modes.}
@@ -217,7 +208,25 @@ The wavelength sensitivity is analysed in Tab. \ref{tab:splitter_doubled_lc}. As
 \section{Conclusion}
 \label{sec:conclusion}
 
-In summary, we began our study with a investigation of the material of cores for the coupled system, their geometry and the gap distance between them. In sequence, we derived the coupling coefficient form and the coupled mode equations, followed by the discussion of a numerical method to compute the coupling rate. At last, we projected two cases of a 50/50 beamplitter varying the geometry of the cores, and analyse their sensitivity with the wavelength and the length interaction error.
+In summary, we began our study with a investigation of the material of cores for the coupled system, their geometry and the gap distance between them. At last, we projected two cases of a 50/50 beamplitter varying the geometry of the cores, and analyse their sensitivity with the wavelength and the length interaction error.
+
+\section*{Appendix}
+\label{sec:appendix}
+
+Rewriting of the curl of a scalar function depending only on z multiplied by a vector function:
+\begin{equation}\label{eq:rot_av}
+\nabla\times\left(a_{(z)}\vec{v}\right) = a_{(z)}\nabla\times\vec{v} + \nabla a_{(z)}\times\vec{v} = a_{(z)}\nabla\times\vec{v} + \frac{da_{(z)}}{dz}\hat{z}\times\vec{v}
+\end{equation}
+
+Cross and dot products of vectors of the type $\vec{A}e^{j\phi_1}$ e $\vec{B}e^{-j\phi_2}$
+\begin{equation} \label{eq:cross_dot_identity}
+\left\{
+\begin{split}
+\vec{A}e^{j\phi_1}\times \vec{B}e^{-j\phi_2} &= (\vec{A}\times\vec{B})e^{j(\phi_1-\phi_2)} \\
+\vec{A}e^{j\phi_1}\cdot \vec{B}e^{-j\phi_2} &= (\vec{A}\cdot\vec{B})e^{j(\phi_1-\phi_2)}
+\end{split}
+\right.
+\end{equation}
 
 % \bibliographystyle{IEEEtran}
 % \bibliography{References}

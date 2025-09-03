@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1756904063.19527 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" "intermediate_results.pdf" "intermediate_results" 1756904064.85636 0
+["pdflatex"] 1756925703.04075 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" "intermediate_results.pdf" "intermediate_results" 1756925705.39302 0
   "../../graphics/comsol_coupled_waveguide/even_odd_supermodes.png" 1756897549 146119 7293c2ebd5d6cb30f338249ea1fe6687 ""
   "../../graphics/dispersion_relation.png" 1756897550 26797 001d6f6f117966aaa2363b1c50247d24 ""
   "../../graphics/planar_dielectric_waveguide/modes_SiO2_d5um_wv1.55um.png" 1756897550 23974 57a92e81b12d526c331c7b3a92b298ae ""
-  "C:/Users/eduar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1756688499 84158 d77284a6843bde1e4b9764f09fb2e89e ""
+  "C:/Users/eduar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1756924360 84158 d77284a6843bde1e4b9764f09fb2e89e ""
   "C:/Users/eduar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1746988213 13157641 14732b0192249d8391ed96f24436d275 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb7t.tfm" 1136783054 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -48,6 +48,7 @@
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
+  "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1247596666 32716 08e384dc442464e7285e891af9f45947 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136864148 44729 fea0975e20ec51c992338362f05f1146 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb" 1136864148 44656 0cbca70e0534538582128f6b54593cca ""
@@ -91,9 +92,9 @@
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1745818159 30366 13daaaa774357bc2a262523ba6a04bac ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" 1756903993 14465 19cb5ed5ed94f5b3acd0d7c1a1a59695 ""
-  "intermediate_results.aux" 1756904064 3807 a3107275617f4243683d8dcf51266ba5 "pdflatex"
-  "intermediate_results.tex" 1756903993 14465 19cb5ed5ed94f5b3acd0d7c1a1a59695 ""
+  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" 1756925698 14593 f4d2034ecd38809d1499b5b98dd534ab ""
+  "intermediate_results.aux" 1756925704 3401 797c4b6be953dcfda2fce1f5cb225677 "pdflatex"
+  "intermediate_results.tex" 1756925698 14593 f4d2034ecd38809d1499b5b98dd534ab ""
   (generated)
   "intermediate_results.aux"
   "intermediate_results.log"
