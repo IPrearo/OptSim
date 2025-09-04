@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1756925703.04075 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" "intermediate_results.pdf" "intermediate_results" 1756925705.39302 0
+["pdflatex"] 1756940528.9868 "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" "intermediate_results.pdf" "intermediate_results" 1756940530.14997 0
   "../../graphics/comsol_coupled_waveguide/even_odd_supermodes.png" 1756897549 146119 7293c2ebd5d6cb30f338249ea1fe6687 ""
   "../../graphics/dispersion_relation.png" 1756897550 26797 001d6f6f117966aaa2363b1c50247d24 ""
   "../../graphics/planar_dielectric_waveguide/modes_SiO2_d5um_wv1.55um.png" 1756897550 23974 57a92e81b12d526c331c7b3a92b298ae ""
@@ -92,9 +92,9 @@
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1745818159 30366 13daaaa774357bc2a262523ba6a04bac ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/eduar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" 1756925698 14593 f4d2034ecd38809d1499b5b98dd534ab ""
-  "intermediate_results.aux" 1756925704 3401 797c4b6be953dcfda2fce1f5cb225677 "pdflatex"
-  "intermediate_results.tex" 1756925698 14593 f4d2034ecd38809d1499b5b98dd534ab ""
+  "c:/Users/eduar/Desktop/optsim_parent/OptSim/projects/project1/reports/intermediate_results/intermediate_results.tex" 1756940527 14587 043989e1878c0479ba7f9d394f1ef608 ""
+  "intermediate_results.aux" 1756940529 3401 797c4b6be953dcfda2fce1f5cb225677 "pdflatex"
+  "intermediate_results.tex" 1756940527 14587 043989e1878c0479ba7f9d394f1ef608 ""
   (generated)
   "intermediate_results.aux"
   "intermediate_results.log"

@@ -1,10 +1,9 @@
-\documentclass[final,12pt,times,twocolumn,authoryear]{elsarticle}
-
+\documentclass[final,12pt,times,twocolumn]{elsarticle}
 
 \usepackage{float}
 \usepackage{ragged2e}
 \usepackage{amssymb}
-\usepackage[english]{babel}
+\usepackage[brazil]{babel}
 \usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{hyperref}
@@ -17,8 +16,7 @@
 %\numberwithin{figure}{section}
 %\numberwithin{table}{section}
 
-\journal{FI 254}
-
+\journal{FI254}
 
 \newcommand{\diverg}{\vec{\nabla}}
 \newcommand{\tildee}{ \vec{\tilde{E}}}
@@ -28,8 +26,6 @@
 \newcommand{\couplingdenom}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_p^*\times\tildeh_p+\tildee_p\times\tildeh_p^*\right) dxdy }
 \newcommand{\couplingdenomone}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_1^*\times\tildeh_1+\tildee_1\times\tildeh_1^*\right) dxdy }
 \newcommand{\couplingdenomtwo}{ \int_{-\infty}^\infty \int_{-\infty}^\infty \hat{z}\cdot\left(\tildee_2^*\times\tildeh_2+\tildee_2\times\tildeh_2^*\right) dxdy }
-
-
 
 \begin{document}
 
@@ -47,96 +43,81 @@
             country={Brasil}}
 
 \begin{abstract}
-    
+    Neste trabalho, foi explorado o design de um beamsplitter 50/50 composto por um sistema acoplado de dois guias de onda. Primeiramente, foi efetuada uma pré-análise para a escolha do material dos guias individuais e suas dimensões, visando o guiamento de poucos modos, além de escolher um gap entre os guias de modo a ter região de sobreposição consideraval entre as ondas viajantes. Em seguida, foi feita derivação matemáticas das contantes de acoplamente e da equação regedora do sistema acoplado. Por fim, foram propostos dois designs para o beamsplitter, o segundo demonstrando maior robustes com a variação de comprimento de onda de incidência.
 \end{abstract}
 
 \begin{keyword}
-    Guias de onda \sep Teoria de Modos Acoplados \sep Beamsplitters
+    Guias de onda \sep Teoria de Modos Acoplados \sep Beamsplitter
 \end{keyword}
-
 
 \end{frontmatter}
 
 \section{Introdução}
 \label{sec:intro}
 
-\section{Guia de onda dielétrico infinito}
-\label{sec:slab}
+Nesta seção, objetiva-se descrever a investigação realizada para a escolha do material e dos parâmetros geométricos dos guias de onda pertencentes ao sistema acoplado. Inicialmente, foram considerados $SiO_2$ e $TiO_2$ como possíveis materiais, em razão de suas reconhecidas aplicações em circuitos fotônicos integrados (PIC).Também foram escolhidos por suas na relações de dispersão \cite{dispersao}. Em geral, $SiO_2$ e $TiO_2$ são usados em guias de onda de baixo e alto confinamento de luz, respectivamente.
 
-\subsection{Desenvolvimento teórico}
-\label{subsec:slab_theory}
+Com o COMSOL, foram simulados os guias individuais para ambos materiais, e de fato o guia de $TiO_2$ apresenta modos mais confinados. Após, foi simulado o guia acoplado considerando núcleos de $SiO_2$ idênticos ($w_{core} = 6\mu$ e $t_{core} = 2\mu m$), pois este material apresentou região de sobreposição maior. Para estas simulação foi usado o gap de $0.5\mu m$ já que valores menores podem ser mais difíceis de fabricar e valores maiores reduzem a interação entre os guias de maneira significativa.
 
-\subsection{Análise numérica}
-\label{subsec:slab_num}
+\section{Desenvolvimento teórico}
+\label{sec:teoria}
 
-\section{Guia de onda dielétrico retangular}
-\label{subsec:rectangle}
+As derivações desta subseção foram baseadas no capítulo 4 de \cite{okamoto}. Das equações de Maxwell aplicadas em guias de onda dielétricos, tem-se que
 
-\subsection{Desenvolvimento teórico}
-\label{subsec:rectangle_theory}
-
-\subsection{Guia de onda isolado}
-\label{subsec:rectangle_solo}
-
-\subsection{Guias de onda acoplados}
-\label{subsec:rectangle_coupled}
-
-\subsubsection{Coeficientes de acoplamento}
-\label{subsec:coupling_coeff}
-
-As derivações desta subseção foram baseadas no capítulo 4 de \cite{okamoto2021fundamentals}.
-
-Das equações de Maxwell aplicadas em guias de onda dielétricos, tem-se que
-
-\begin{equation}\label{eq:maxwell_guides}
-\left\{
-\begin{split}
-\diverg \times \tildee &= -j\omega\mu_0\tildeh \\
-\diverg\times \tildeh &= j\omega\epsilon_0N_{(x,y)}^2\tildee
-\end{split}\right.
+\begin{equation}
+    \left\{
+    \begin{split}
+        \diverg \times \tildee &= -j\omega\mu_0\tildeh \\
+        \diverg\times \tildeh &= j\omega\epsilon_0N_{(x,y)}^2\tildee
+    \end{split}\right.
+    \label{eq:maxwell_guides}
 \end{equation}
 
 As mesmas equações para dois guias de onda distintos podem ser escritas como
 
-\begin{equation}\label{eq:maxwell_pguides}
-\left\{
-\begin{split}
-\diverg \times \tildee_p &= -j\omega\muz\tildeh_p \\
-\diverg\times \tildeh_p &= j\omega\epsz N_p^2\tildee_p
-\end{split}\right. ,
+\begin{equation}
+    \left\{
+    \begin{split}
+        \diverg \times \tildee_p &= -j\omega\muz\tildeh_p \\
+        \diverg\times \tildeh_p &= j\omega\epsz N_p^2\tildee_p
+    \end{split}\right. ,
+    \label{eq:maxwell_pguides}
 \end{equation}
 
-\noindent onde $p=1,2$ distingue os campos eletromagnéticos de cada guia de onda isolado. A dependência de $N$ ($\tildee,\tildeh$) em $x,y$ ($x,y,z$) foi emitida por motivos de simplificação, mas deve-se atentar a este fato para as equações seguintes, onde esses termos serão integrados no espaço.
+\noindent em que $p=1,2$ distingue os campos eletromagnéticos de cada guia de onda isolado. A dependência de $N$ ($\tildee,\tildeh$) em $x,y$ ($x,y,z$) foi emitida por motivos de simplificação, mas deve-se atentar a este fato para as equações seguintes, onde esses termos serão integrados no espaço.
 
-Assumindo que os modos guiados pelos dois guias formam uma base completa da solução conjunta, podemos escrever o campo total como sendo a superposição dos campos eletromagnéticos isolados
+Assumindo que os modos guiados pelos dois guias formam uma base completa da solução conjunta, pode-se escrever o campo total como sendo a superposição dos campos eletromagnéticos isolados
 
-\begin{equation}\label{eq:field_dependancies}
-\left\{
-\begin{split}
-\tildee &= A_{(z)}\tildee_1 + B_{(z)}\tildee_2 \\
-\tildeh &= A_{(z)}\tildeh_1 + B_{(z)}\tildeh_2
-\end{split}
-\right.
+\begin{equation}
+    \left\{
+    \begin{split}
+        \tildee &= A_{(z)}\tildee_1 + B_{(z)}\tildee_2 \\
+        \tildeh &= A_{(z)}\tildeh_1 + B_{(z)}\tildeh_2
+    \end{split}
+    \right.
+    \label{eq:field_dependancies}
 \end{equation}
 
-Usando as equações \ref{eq:maxwell_guides} e \ref{eq:field_dependancies} chegamos em
+Usando as equações \eqref{eq:maxwell_guides} e \eqref{eq:field_dependancies} chega-se em
 
-\begin{equation}\label{eq:AB_dependancies}
-\left\{
-\begin{split}
-\frac{dA}{dz}\hat{z}\times\tildee_1 &+ \frac{dB}{dz}\hat{z}\times\tildee_2 = 0 \\
-\frac{dA}{dz}\hat{z}\times\tildeh_1 &-j\omega\epsz\left(N^2-N_1^2\right)A\tildee_1 \\
-+ \frac{dB}{dz}\hat{z}&\times\tildeh_2 -j\omega\epsz\left(N^2-N_2^2\right)B\tildee_2 = 0
-\end{split}\right.
+\begin{equation}
+    \left\{
+    \begin{split}
+        \frac{dA}{dz}\hat{z}\times\tildee_1 &+ \frac{dB}{dz}\hat{z}\times\tildee_2 = 0 \\
+        \frac{dA}{dz}\hat{z}\times\tildeh_1 &-j\omega\epsz\left(N^2-N_1^2\right)A\tildee_1 \\
+        + \frac{dB}{dz}\hat{z}&\times\tildeh_2 -j\omega\epsz\left(N^2-N_2^2\right)B\tildee_2 = 0
+    \end{split}\right.
+    \label{eq:AB_dependancies}
 \end{equation}
 
-E estes resultados podem ser utilizados nas seguintes equações integrais:
+E estes resultados podem ser utilizados nas seguintes equações integrais.
 
-\begin{equation}\label{eq:integral_equations}
- \int_{-\infty}^\infty \int_{-\infty}^\infty \left[ \tildee_p^*\cdot (\ref{eq:AB_dependancies}a) - \tildeh_p^*\cdot(\ref{eq:AB_dependancies}b) \right] dxdy = 0
+\begin{equation}
+    \int_{-\infty}^\infty \int_{-\infty}^\infty \left[ \tildee_p^*\cdot (\ref{eq:AB_dependancies}a) - \tildeh_p^*\cdot(\ref{eq:AB_dependancies}b) \right] dxdy = 0
+    \label{eq:integral_equations}
 \end{equation}
 
-Onde (\ref{eq:AB_dependancies}a) e (\ref{eq:AB_dependancies}b) referem-se ao lado esquerdo da primeira e segunda linha da Eq. \ref{eq:AB_dependancies}, respectivamente. Definindo $I_p$ como o integrando da equação acima, é encontrado
+em que \eqref{eq:AB_dependancies}-a e \eqref{eq:AB_dependancies}-b referem-se ao lado esquerdo da primeira e segunda linha da Eq. \eqref{eq:AB_dependancies}, respectivamente. Definindo $I_p$ como o integrando da equação acima, é encontrado
 
 \begin{equation}\label{eq:I_p}
 \begin{split}
@@ -150,57 +131,119 @@ I_p = &- \frac{dA}{dz}\hat{z}\cdot\left( \tildee_p^*\times\tildeh_1 + \tildee_1\
 Ainda é possível separar a componente da direção de propagação nos campos eletromagnéticos, ou seja,
 
 \begin{equation*}
-\left\{
-\begin{split}
-\tildee_p &= \vec{E}_pe^{-i\beta_p z} \\
-\tildeh_p &= \vec{H}_pe^{-i\beta_p z}
-\end{split}
-\right.
+    \left\{
+    \begin{split}
+        \tildee_p &= \vec{E}_pe^{-i\beta_p z} \\
+        \tildeh_p &= \vec{H}_pe^{-i\beta_p z}
+    \end{split}
+    \right.
 \end{equation*}
 
-Portanto, ao substituir a Eq. \ref{eq:I_p} e dividir por $ \couplingdenom $, pode-se escrever a Eq. \ref{eq:integral_equations} para $p=1$ como
+Portanto, ao substituir a Eq. \eqref{eq:I_p} e dividir por $ \couplingdenom $, pode-se escrever a Eq. \eqref{eq:integral_equations} para $p=1$ como
 
-\begin{equation} \label{eq:z_sep_Eq_p1}
-\left\{
-\begin{split}
-\frac{dA}{dz} + \frac{dB}{dz}e^{-j(\beta_2-\beta_1)z}\frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
-+ jA \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
-+ jBe^{-j(\beta_2-\beta_1)z} \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &= 0
-\end{split}
-\right.
+\begin{equation} 
+    \left\{
+    \begin{split}
+        \frac{dA}{dz} + \frac{dB}{dz}e^{-j(\beta_2-\beta_1)z}\frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
+        + jA \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
+        + jBe^{-j(\beta_2-\beta_1)z} \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &= 0
+    \end{split}
+    \right.
+    \label{eq:z_sep_Eq_p1}
 \end{equation}
 
 \noindent definindo os coeficientes de acoplamento
 
 \begin{equation}
-\label{eq:coupling_coeff}
-\left\{
-\begin{split}
-c_{pq} &\equiv \frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z} \cdot \left[ \vec{E_p^*}\times\vec{H_q} + \vec{E_q}\times\vec{H_p^*} \right] dxdy}{\couplingdenom} \\
-\chi_{p} &\equiv \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_p^2\right) \vec{E_p^*}\cdot\vec{E_p} dxdy}{\couplingdenom} \\
-\kappa_{pq} &\equiv \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_q^2\right) \vec{E_p^*}\cdot\vec{E_q} dxdy}{\couplingdenom}
-\end{split} 
-\right.
+    \left\{
+    \begin{split}
+        c_{pq} &\equiv \frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z} \cdot \left[ \vec{E_p^*}\times\vec{H_q} + \vec{E_q}\times\vec{H_p^*} \right] dxdy}{\couplingdenom} \\
+        \chi_{p} &\equiv \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_p^2\right) \vec{E_p^*}\cdot\vec{E_p} dxdy}{\couplingdenom} \\
+        \kappa_{pq} &\equiv \frac{\omega\epsz\int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_q^2\right) \vec{E_p^*}\cdot\vec{E_q} dxdy}{\couplingdenom}
+    \end{split} 
+    \right.
+    \label{eq:coupling_coeff}
 \end{equation}
 
-Tem-se que a Eq. \ref{eq:z_sep_Eq_p1} é simplificada como
+tem-se que Eq. \eqref{eq:z_sep_Eq_p1} é simplificada como
 
 \begin{equation}
-\frac{dA}{dz} + c_{12}\frac{dB}{dz}e^{-j\Delta\beta z} + j\chi_1A + j\kappa_{12}Be^{-j\Delta\beta z} = 0
+    \frac{dA}{dz} + c_{12}\frac{dB}{dz}e^{-j\Delta\beta z} + j\chi_1A + j\kappa_{12}Be^{-j\Delta\beta z} = 0
 \end{equation}
 
-onde $\Delta\beta\equiv\beta_2-\beta_1$. De maneira análoga, a partir da Eq. \ref{eq:integral_equations}, mas com $p=2$ obetém-se
+sendo $\Delta\beta\equiv\beta_2-\beta_1$. De maneira análoga, a partir de Eq. \eqref{eq:integral_equations}, mas com $p=2$ obetem-se
 
 \begin{equation}
 \frac{dB}{dz} + c_{21}\frac{dA}{dz}e^{-j\Delta\beta z} + j\chi_2B + j\kappa_{21}Ae^{-j\Delta\beta z} = 0
 \end{equation} 
 
+\section{Beamsplitter 50/50}
+\label{sec:splitter}
+
+Nesta seção, seram discutidos os dois casos para o beamsplitter 50/50, (i) guias idênticos com $w_{core,j} = 6\mu m$ e $t_{core, j} = 2\mu m$ e (ii) segundo guia com o dobro da largura do primeiro, i.e. $w_{core,2} = 2w_{core,1} = 6\mu m$. Para ambos os casos, foi usado um domínio restante de ar definido por $w_{clad} = 30\mu m$ e $t_{clad} = 15\mu m$.
+
+Primeiramente, foi realizado um estudo visual variando o gap $d$ entre os guias idênticos, e foi escolhido o valor $d = 0.5\mu m$, por apresentar região de sobreposição considerada e por gaps menores apresentarem maior dificuldade de fabricação. Para as análises subsequentes, é importante saber distinguir os supermodos par e ímpar de mesma, para facilitar esta idêntificação, foi graficado em cima da distribuição espacial $\| \vec{E} \|$ o plot vetorial o campo transversal $\vec{E}_t$. Se a direção de $\vec{E}_t$ for idêntica em ambos guias este é um supermodo par, e se for oposta se trata de um supermodo ímpar.
+
+Em seguida, foram calculados os coeficientes de acoplamento direto (butt coupling), acoplamento inter-modo e o atraso de fase devido a presença de outro guia com o auxílio do COMSOL. Estes coeficientes foram calculados considerando o acoplamento do modo fundamental do guia 1 nos modos fundamental, de primeira e segunda ordem no guia 2. O mesmo cálculo foi realizado para o caso (ii), e os valores estão dispostos em Tab. \ref{tab:splitter_coefficients}. 
+
+Furthermore, calculate the butt coupling, inter-mode and auto-phase-shift coefficients by simulation the individual guides (just one core and the cladding) and separating them into studies in COMSOL. For those values which presented imagnary part, we noticed the real part is much greater, so in Tab. \ref{tab:splitter_identical_coefficients} we put only the absolute value of the real component.
+
+\begin{table}[H]
+    \centering
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
+            \midrule
+            $0.0073$ & $1.0890 \cdot 10^5$ & $3366.5$ \\
+            $\sim 10^{-7}$ & $1.0890 \cdot 10^5$ & $0.5$ \\
+            $0.0154$ & $1.0890 \cdot 10^5$ & $7207.3$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Caso (i).}
+    \end{subtable}
+    \hfill
+    \begin{subtable}{0.45\textwidth}
+        \centering
+        \begin{tabular}{ccc}
+            \toprule
+            $|\Re(C_{12})|$ & $|\chi_{11}| [m^{-1}]$ & $|\Re(\kappa_{12})| [m^{-1}]$ \\ 
+            \midrule
+            $0.0169$ & $1.6146 \cdot 10^5 $ & $6830$ \\
+            $\sim 10^{-6}$ & $1.6146 \cdot 10^5 $ & $2$ \\
+            $\sim 10^{-6}$ & $1.6146 \cdot 10^5 $ & $3$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{Caso (ii).}
+    \end{subtable}
+    \caption{Coeficientes de acoplamento para casos (i) e (ii). Valores para acoplamentos dos modos (0,0), (0,1) e (0,2) em ordem de linha na tabela.}
+    \label{tab:splitter_coefficients}
+\end{table}
+
+Percebemos que o acoplamento do modo fundamental para outro de ordem par é bem mais eficiente para o caso (i), já para o caso (ii) o acoplamento do modo fundamental para o de segunda ordem é tão baixo quanto para um modo ímpar.
+
+Outro fator que foi calculado é o comprimento de interação para se obter a total transferência de potência de um guia pra o outro, denominado $L_c$. Este comprimento característico é dado por $L_c = \frac{\pi}{\Delta \beta}$ sendo $\Delta \beta \equiv \beta_{par} - \beta_{ímpar}$. Note que estas constantes de propagação são calculadas pela simulação direta do COMSOL para os guias acoplados. 
+
+Tendo $L_c$ para determinado comprimento de onda, a eficiência de acoplamento é dada por $\eta = L_{int} / L_c$. Para o caso (i), $L_c(1.55\mu m) = 968.7\mu m$. Se for considerado então $L_{int} = 484.4\mu m$, terá uma eficiência de acoplamento de $50\%$. Foi observado que $\eta(1.50\mu m) = 45.2\%$ e $\eta(1.60\mu m) = 54.5\%$, ou seja uma variação de eficiência de $\pm 5\%$ em um span de apenas $100nm$.
+
+Agora, considere o caso (ii), no qual $L_c(1.55\mu m) = 176.1$. Tomando $L_{int} = 88.1 \mu m$ para obter $\eta(1.55\mu m) = 50\%$, notou-se que $\eta(1.40\mu m) = 49.1$ e $\eta(1.70\mu m) = 49.7$, correspondendo a uma variação de eficiência de menos de $\pm 2\%$ em um span de $300nm$. Ou seja, este design é preferido para beamsplitters 50/50 bombeados por fontes de banda mais larga. 
+
 \section{Conclusão}
 \label{sec:conclusion}
 
-\section*{Referências Bibliográficas}
+Portanto, neste estudo foi feita a investigação do número de modos e da forma dos campos para guias de onda feitos de $SiO_2$ e $TiO_2$ com o auxílio das ferramentas Python e COMSOL. Por meio da derivação dos coeficientes de acoplamento, foi possível além de projetar dois casos de beamsplitter 50/50, analisar seu parâmetros de acoplamento, de um guia para outro. Por último, analisamos a sensibilidade da eficiência de acoplamento com o comprimento de onda de entrada e com a variação no comprimento de interação, sendo o caso em que o segundo guia apresenta  o dobro das largura do primeiro o que apresenta menos variação com $\lambda$ de entrada.
 
-\section*{Apêndice}
-\label{sec:appendix}
+\begin{thebibliography}{99}
+
+\bibitem{okamoto}
+K. Okamoto, \textit{Fundamentals of Optical Waveguides}, Elsevier, 2021.
+
+\bibitem{dispersao}
+G. Ghosh, \textit{Refractive Index of Silicon Dioxide (SiO$_2$)}, RefractiveIndex.INFO database, 1999.
+
+\end{thebibliography}
+
+
 
 \end{document}
