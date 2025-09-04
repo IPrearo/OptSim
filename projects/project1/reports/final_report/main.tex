@@ -13,6 +13,7 @@
 \usepackage{subcaption}
 \usepackage{graphicx,color}
 \usepackage{amsmath}
+\usepackage{hyperref}
 %\numberwithin{figure}{section}
 %\numberwithin{table}{section}
 
@@ -43,7 +44,7 @@
             country={Brasil}}
 
 \begin{abstract}
-    Neste trabalho, foi explorado o design de um beamsplitter 50/50 composto por um sistema acoplado de dois guias de onda. Primeiramente, foi efetuada uma pré-análise para a escolha do material dos guias individuais e suas dimensões, visando o guiamento de poucos modos, além de escolher um gap entre os guias de modo a ter região de sobreposição consideraval entre as ondas viajantes. Em seguida, foi feita derivação matemáticas das contantes de acoplamente e da equação regedora do sistema acoplado. Por fim, foram propostos dois designs para o beamsplitter, o segundo demonstrando maior robustes com a variação de comprimento de onda de incidência.
+    Neste trabalho, foi explorado o design de um beamsplitter 50/50 composto por um sistema acoplado de dois guias de onda. Primeiramente, foi efetuada uma pré-análise para a escolha do material dos guias individuais e suas dimensões, visando o guiamento de poucos modos, além de escolher um gap entre os guias de modo a ter região de sobreposição considerável entre as ondas viajantes. Em seguida, houve a derivação matemática das contantes de acoplamento e da equação regedora do sistema acoplado. Por fim, foram propostos dois designs para o beamsplitter, o segundo demonstrando maior robustez quanto a variação de comprimento de onda de incidência.
 \end{abstract}
 
 \begin{keyword}
@@ -55,14 +56,14 @@
 \section{Introdução}
 \label{sec:intro}
 
-Nesta seção, objetiva-se descrever a investigação realizada para a escolha do material e dos parâmetros geométricos dos guias de onda pertencentes ao sistema acoplado. Inicialmente, foram considerados $SiO_2$ e $TiO_2$ como possíveis materiais, em razão de suas reconhecidas aplicações em circuitos fotônicos integrados (PIC).Também foram escolhidos por suas na relações de dispersão \cite{dispersao}. Em geral, $SiO_2$ e $TiO_2$ são usados em guias de onda de baixo e alto confinamento de luz, respectivamente.
+Nesta seção, objetiva-se descrever a investigação realizada para a escolha do material e dos parâmetros geométricos dos guias de onda pertencentes ao sistema acoplado. Inicialmente, foram considerados $SiO_2$ e $TiO_2$ como possíveis materiais, em razão de suas reconhecidas aplicações em circuitos fotônicos integrados (PIC).Também foram escolhidos por suas relações de dispersão \cite{dispersao}. Em geral, $SiO_2$ e $TiO_2$ são usados em guias de onda de baixo e alto confinamento de luz, respectivamente.
 
-Com o COMSOL, foram simulados os guias individuais para ambos materiais, e de fato o guia de $TiO_2$ apresenta modos mais confinados. Após, foi simulado o guia acoplado considerando núcleos de $SiO_2$ idênticos ($w_{core} = 6\mu$ e $t_{core} = 2\mu m$), pois este material apresentou região de sobreposição maior. Para estas simulação foi usado o gap de $0.5\mu m$ já que valores menores podem ser mais difíceis de fabricar e valores maiores reduzem a interação entre os guias de maneira significativa.
+Com o COMSOL, foram simulados os guias individuais para ambos materiais, e de fato o guia de $TiO_2$ apresenta modos mais confinados. Após, foi simulado o guia acoplado considerando núcleos de $SiO_2$ idênticos ($w_{core} = 6\mu$ e $t_{core} = 2\mu m$), pois este material apresentou região de sobreposição maior. Para estas simulações foi utilizado o gap de $0.5\mu m$ já que valores menores podem apresentar dificuldade de fabricação e valores maiores reduzem a interação entre os guias de maneira significativa.
 
 \section{Desenvolvimento teórico}
 \label{sec:teoria}
 
-As derivações desta subseção foram baseadas no capítulo 4 de \cite{okamoto}. Das equações de Maxwell aplicadas em guias de onda dielétricos, tem-se que
+As derivações desta seção foram baseadas no capítulo 4 de \cite{okamoto}. Das equações de Maxwell aplicadas em guias de onda dielétricos, tem-se que
 
 \begin{equation}
     \left\{
@@ -113,7 +114,7 @@ Usando as equações \eqref{eq:maxwell_guides} e \eqref{eq:field_dependancies} c
 E estes resultados podem ser utilizados nas seguintes equações integrais.
 
 \begin{equation}
-    \int_{-\infty}^\infty \int_{-\infty}^\infty \left[ \tildee_p^*\cdot (\ref{eq:AB_dependancies}a) - \tildeh_p^*\cdot(\ref{eq:AB_dependancies}b) \right] dxdy = 0
+    \int_{-\infty}^\infty \int_{-\infty}^\infty \left[ \tildee_p^*\cdot (\ref{eq:AB_dependancies}b) - \tildeh_p^*\cdot(\ref{eq:AB_dependancies}a) \right] dxdy = 0
     \label{eq:integral_equations}
 \end{equation}
 
@@ -142,13 +143,11 @@ Ainda é possível separar a componente da direção de propagação nos campos 
 Portanto, ao substituir a Eq. \eqref{eq:I_p} e dividir por $ \couplingdenom $, pode-se escrever a Eq. \eqref{eq:integral_equations} para $p=1$ como
 
 \begin{equation} 
-    \left\{
     \begin{split}
-        \frac{dA}{dz} + \frac{dB}{dz}e^{-j(\beta_2-\beta_1)z}\frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
-        + jA \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &\\
-        + jBe^{-j(\beta_2-\beta_1)z} \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} &= 0
+        \frac{dA}{dz} &+ \frac{dB}{dz}e^{-j(\beta_2-\beta_1)z}\frac{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_2} + \vec{E_2}\times\vec{H_1^*} \right) dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} \\
+        &+ jA \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_1^2\right)\vec{E_1^*}\cdot\vec{E_1} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} \\
+        &+ jBe^{-j(\beta_2-\beta_1)z} \frac{\omega\epsz  \int_{-\infty}^\infty\int_{-\infty}^\infty \left(N^2-N_2^2\right)\vec{E_1^*}\cdot\vec{E_2} dxdy}{\int_{-\infty}^\infty\int_{-\infty}^\infty \hat{z}\cdot\left( \vec{E_1^*}\times\vec{H_1} + \vec{E_1}\times\vec{H_1^*} \right) dxdy} = 0
     \end{split}
-    \right.
     \label{eq:z_sep_Eq_p1}
 \end{equation}
 
@@ -180,15 +179,14 @@ sendo $\Delta\beta\equiv\beta_2-\beta_1$. De maneira análoga, a partir de Eq. \
 \section{Beamsplitter 50/50}
 \label{sec:splitter}
 
-Nesta seção, seram discutidos os dois casos para o beamsplitter 50/50, (i) guias idênticos com $w_{core,j} = 6\mu m$ e $t_{core, j} = 2\mu m$ e (ii) segundo guia com o dobro da largura do primeiro, i.e. $w_{core,2} = 2w_{core,1} = 6\mu m$. Para ambos os casos, foi usado um domínio restante de ar definido por $w_{clad} = 30\mu m$ e $t_{clad} = 15\mu m$.
+Nesta seção, serão discutidos os dois casos para o beamsplitter 50/50, (i) guias idênticos com $w_{core,j} = 6\mu m$ e $t_{core, j} = 2\mu m$ e (ii) o segundo guia tem o dobro da largura do primeiro, i.e. $w_{core,2} = 2w_{core,1} = 6\mu m$. Para ambos os casos, foi usado um domínio restante de ar definido por $w_{clad} = 30\mu m$ e $t_{clad} = 15\mu m$.
 
-Primeiramente, foi realizado um estudo visual variando o gap $d$ entre os guias idênticos, e foi escolhido o valor $d = 0.5\mu m$, por apresentar região de sobreposição considerada e por gaps menores apresentarem maior dificuldade de fabricação. Para as análises subsequentes, é importante saber distinguir os supermodos par e ímpar de mesma, para facilitar esta idêntificação, foi graficado em cima da distribuição espacial $\| \vec{E} \|$ o plot vetorial o campo transversal $\vec{E}_t$. Se a direção de $\vec{E}_t$ for idêntica em ambos guias este é um supermodo par, e se for oposta se trata de um supermodo ímpar.
+Primeiramente, foi realizado um estudo visual variando o gap $d$ entre os guias idênticos, e foi escolhido o valor $d = 0.5\mu m$, por apresentar região de sobreposição considerada e por gaps menores apresentarem maior dificuldade de fabricação. Para as análises subsequentes, é importante saber distinguir os supermodos par e ímpar de mesma, para facilitar esta identificação foi feito o gráfico da componente transversal $\vec{E}_t$. Se o sentido de $\vec{E}_t$ for idêntica em ambos guias este é um supermodo par, e se for oposta se trata de um supermodo ímpar.
 
-Em seguida, foram calculados os coeficientes de acoplamento direto (butt coupling), acoplamento inter-modo e o atraso de fase devido a presença de outro guia com o auxílio do COMSOL. Estes coeficientes foram calculados considerando o acoplamento do modo fundamental do guia 1 nos modos fundamental, de primeira e segunda ordem no guia 2. O mesmo cálculo foi realizado para o caso (ii), e os valores estão dispostos em Tab. \ref{tab:splitter_coefficients}. 
+Em seguida, foram calculados os coeficientes de acoplamento direto (butt coupling), acoplamento inter-modo e o atraso de fase devido a presença de outro guia com o auxílio do COMSOL. Estes coeficientes foram calculados considerando o acoplamento do modo fundamental do guia 1 com os modos fundamental, de primeira e segunda ordem no guia 2. O mesmo cálculo foi realizado para o caso (ii), e os valores estão dispostos em Tab. \ref{tab:splitter_coefficients}. 
+Os cálculos de coeficientes de acoplamento foi realizado pela simulação de guias individualmente e em conjunto no COMSOL. Para esses valores que apresentavam parte imaginária, notou-se que a componente real tinha magnitude muito maior. Por conta disso, a Tab. \ref{tab:splitter_coefficients} apresenta apenas o valor absoluto da componente real.
 
-Furthermore, calculate the butt coupling, inter-mode and auto-phase-shift coefficients by simulation the individual guides (just one core and the cladding) and separating them into studies in COMSOL. For those values which presented imagnary part, we noticed the real part is much greater, so in Tab. \ref{tab:splitter_identical_coefficients} we put only the absolute value of the real component.
-
-\begin{table}[H]
+\begin{table}[h]
     \centering
     \begin{subtable}{0.45\textwidth}
         \centering
@@ -221,26 +219,32 @@ Furthermore, calculate the butt coupling, inter-mode and auto-phase-shift coeffi
     \label{tab:splitter_coefficients}
 \end{table}
 
-Percebemos que o acoplamento do modo fundamental para outro de ordem par é bem mais eficiente para o caso (i), já para o caso (ii) o acoplamento do modo fundamental para o de segunda ordem é tão baixo quanto para um modo ímpar.
+Percebemos que o acoplamento do modo fundamental para outro de ordem par é mais eficiente para o caso (i), já para o caso (ii) o acoplamento do modo fundamental para o de segunda ordem é tão baixo quanto para um modo ímpar.
 
-Outro fator que foi calculado é o comprimento de interação para se obter a total transferência de potência de um guia pra o outro, denominado $L_c$. Este comprimento característico é dado por $L_c = \frac{\pi}{\Delta \beta}$ sendo $\Delta \beta \equiv \beta_{par} - \beta_{ímpar}$. Note que estas constantes de propagação são calculadas pela simulação direta do COMSOL para os guias acoplados. 
+Outro fator que foi calculado é o comprimento de interação para se obter a total transferência de potência de um guia pra o outro, denominado $L_c$. Este comprimento característico é dado por $L_c = \frac{\pi}{\Delta \beta}$ sendo $\Delta \beta \equiv \beta_{par} - \beta_{ímpar}$. Estas constantes de propagação são calculadas diretamente na simulação do COMSOL para os guias acoplados. 
 
 Tendo $L_c$ para determinado comprimento de onda, a eficiência de acoplamento é dada por $\eta = L_{int} / L_c$. Para o caso (i), $L_c(1.55\mu m) = 968.7\mu m$. Se for considerado então $L_{int} = 484.4\mu m$, terá uma eficiência de acoplamento de $50\%$. Foi observado que $\eta(1.50\mu m) = 45.2\%$ e $\eta(1.60\mu m) = 54.5\%$, ou seja uma variação de eficiência de $\pm 5\%$ em um span de apenas $100nm$.
 
-Agora, considere o caso (ii), no qual $L_c(1.55\mu m) = 176.1$. Tomando $L_{int} = 88.1 \mu m$ para obter $\eta(1.55\mu m) = 50\%$, notou-se que $\eta(1.40\mu m) = 49.1$ e $\eta(1.70\mu m) = 49.7$, correspondendo a uma variação de eficiência de menos de $\pm 2\%$ em um span de $300nm$. Ou seja, este design é preferido para beamsplitters 50/50 bombeados por fontes de banda mais larga. 
+Considerando o caso (ii), no qual $L_c(1.55\mu m) = 176.1$ e tomando $L_{int} = 88.1 \mu m$ para obter $\eta(1.55\mu m) = 50\%$, notou-se que $\eta(1.40\mu m) = 49.1$ e $\eta(1.70\mu m) = 49.7$, correspondendo a uma variação de eficiência de menos de $\pm 2\%$ em um intervalo de $300nm$. Ou seja, este design é vantajoso para beamsplitters 50/50 bombeados por fontes de banda mais larga. 
 
 \section{Conclusão}
 \label{sec:conclusion}
 
-Portanto, neste estudo foi feita a investigação do número de modos e da forma dos campos para guias de onda feitos de $SiO_2$ e $TiO_2$ com o auxílio das ferramentas Python e COMSOL. Por meio da derivação dos coeficientes de acoplamento, foi possível além de projetar dois casos de beamsplitter 50/50, analisar seu parâmetros de acoplamento, de um guia para outro. Por último, analisamos a sensibilidade da eficiência de acoplamento com o comprimento de onda de entrada e com a variação no comprimento de interação, sendo o caso em que o segundo guia apresenta  o dobro das largura do primeiro o que apresenta menos variação com $\lambda$ de entrada.
+Neste estudo foram feitas as investigações do número de modos e da forma dos campos para guias de onda feitos de $SiO_2$ e $TiO_2$ com o auxílio das ferramentas Python e COMSOL. Por meio da derivação dos coeficientes de acoplamento foi possível, além de projetar dois casos de beamsplitter 50/50, analisar seus parâmetros de acoplamento entre os dois guias. Por último, foi analisada a sensibilidade da eficiência de acoplamento com o comprimento de onda de entrada e com a variação no comprimento de interação, sendo o caso em que o segundo guia apresenta o dobro da largura do primeiro o que apresenta menor variação de eficiência de acoplamento com $\lambda$ de entrada.
+
+Os códigos desenvolvidos, arquivos de simulações feitas no COMSOL e relatórios produzidos durante este trabalho encontram-se disponíveis \textit{online} em \cite{github}.
 
 \begin{thebibliography}{99}
+
+
+\bibitem{dispersao}
+G. Ghosh, \textit{Refractive Index of Silicon Dioxide (SiO$_2$)}, RefractiveIndex.INFO database, 1999.
 
 \bibitem{okamoto}
 K. Okamoto, \textit{Fundamentals of Optical Waveguides}, Elsevier, 2021.
 
-\bibitem{dispersao}
-G. Ghosh, \textit{Refractive Index of Silicon Dioxide (SiO$_2$)}, RefractiveIndex.INFO database, 1999.
+\bibitem{github}
+I. Prearo, E. Souza, \textit{OptSim}, \url{github.com/IPrearo/OptSim}. Acessado em setembro de 2025.
 
 \end{thebibliography}
 
